@@ -4,11 +4,16 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "db-up": "node ./node_modules/db-migrate/bin/db-migrate up --migrations-dir=./database/migrations --config=./database/database.json",
+        "db-down": "node ./node_modules/db-migrate/bin/db-migrate reset --migrations-dir=./database/migrations --config=./database/database.json",
+        "db-reset": "npm run db-down && npm run db-up",
         "start": "nodemon -L --inspect=0.0.0.0:9229 src/index.js"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "db-migrate": "^0.11.5",
+        "db-migrate-pg": "^0.5.0",
         "dotenv": "^7.0.0",
         "graphql-yoga": "^1.17.4"
     },

@@ -1,0 +1,11 @@
+{
+	"defaultEnv": "dev",
+	"dev": {
+		"driver": "pg",
+		"user": "postgres",
+		"password": "",
+		"host": "db",
+		"database": "postgres"
+	},
+	"sql-file": true
+}
