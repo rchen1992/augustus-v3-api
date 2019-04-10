@@ -1,0 +1,13 @@
+.git
+.gitignore
+.dockerignore
+.DS_Store
+.sass-cache
+.vscode
+.env.example
+docs
+data
+node_modules
+Dockerfile*
+docker-compose*
+*.log

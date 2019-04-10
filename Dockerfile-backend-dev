@@ -1,0 +1,10 @@
+# loosely based on:
+# https://github.com/nodejs/docker-node/blob/master/8/onbuild/Dockerfile
+FROM node:8.9
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# EXPOSE & BIND app ports to host from docker-compose.yml
+# "npm start" script in package.json
+CMD ["npm", "start"]

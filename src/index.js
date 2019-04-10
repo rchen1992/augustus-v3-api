@@ -8,12 +8,12 @@ const typeDefs = `
 
 const resolvers = {
     Query: {
-        info: () => `This is the API of a Hackernews Clone`,
+        info: () => `Test query`,
     },
 };
 
 const serverOptions = {
-    port: 4000,
+    port: 8080,
     endpoint: '/graphql',
     playground: '/docs',
     tracing: true,
@@ -25,4 +25,4 @@ const server = new GraphQLServer({
     resolvers,
 });
 
-server.start(serverOptions, () => console.log(`Server is running on http://localhost:4000`));
+server.start(serverOptions, () => console.log(`Server is running on http://localhost:8080`));
