@@ -1,0 +1,10 @@
+type Match {
+    matchId: ID!
+    tied: Boolean!
+    createdAt: String
+    updatedAt: String
+}
+
+extend type Query {
+    matches: [Match]!
+}
