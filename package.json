@@ -16,6 +16,7 @@
         "db-migrate-pg": "^0.5.0",
         "dotenv": "^7.0.0",
         "graphql-yoga": "^1.17.4",
+        "lodash": "^4.17.11",
         "module-alias": "^2.2.0",
         "pg": "^7.9.0",
         "pg-hstore": "^2.3.2",
@@ -26,6 +27,7 @@
     },
     "_moduleAliases": {
         "@database": "database",
-        "@models": "src/models"
+        "@models": "src/models",
+        "@utils": "src/utils"
     }
 }
