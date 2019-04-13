@@ -7,7 +7,7 @@ module.exports = {
         users,
     },
     User: {
-        userId(user) {
+        id(user) {
             return user.user_id + '';
         },
         userName(user) {

@@ -1,10 +1,10 @@
-type Match {
-    matchId: ID!
+type Match implements Node {
+    id: ID!
     tied: Boolean!
     createdAt: String
     updatedAt: String
 }
 
 extend type Query {
-    matches: [Match]!
+    matches: [Match!]!
 }

@@ -7,7 +7,7 @@ module.exports = {
         ladders,
     },
     Ladder: {
-        ladderId(ladder) {
+        id(ladder) {
             return ladder.ladder_id + '';
         },
         ladderName(ladder) {

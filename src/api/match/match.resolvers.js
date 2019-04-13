@@ -7,7 +7,7 @@ module.exports = {
         matches,
     },
     Match: {
-        matchId(match) {
+        id(match) {
             return match.match_id + '';
         },
         createdAt(match) {

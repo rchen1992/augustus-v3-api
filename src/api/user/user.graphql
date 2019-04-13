@@ -1,5 +1,5 @@
-type User {
-    userId: ID!
+type User implements Node {
+    id: ID!
     email: String
     userName: String!
     avatarUrl: String
@@ -8,5 +8,5 @@ type User {
 }
 
 extend type Query {
-    users: [User]!
+    users: [User!]!
 }

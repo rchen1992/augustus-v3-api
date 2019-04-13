@@ -1,1 +1,5 @@
 type Query
+
+interface Node {
+    id: ID!
+}

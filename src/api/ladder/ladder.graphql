@@ -1,5 +1,5 @@
-type Ladder {
-    ladderId: ID!
+type Ladder implements Node {
+    id: ID!
     ladderName: String!
     inviteToken: String!
     createdAt: String
@@ -7,5 +7,5 @@ type Ladder {
 }
 
 extend type Query {
-    ladders: [Ladder]!
+    ladders: [Ladder!]!
 }
