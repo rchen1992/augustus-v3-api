@@ -1,0 +1,11 @@
+type Ladder {
+    ladderId: ID!
+    ladderName: String!
+    inviteToken: String!
+    createdAt: String
+    updatedAt: String
+}
+
+extend type Query {
+    ladders: [Ladder]!
+}

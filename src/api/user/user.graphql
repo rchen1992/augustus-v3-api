@@ -7,6 +7,6 @@ type User {
     updatedAt: String
 }
 
-type Query {
+extend type Query {
     users: [User]!
 }
