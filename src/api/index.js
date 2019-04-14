@@ -3,9 +3,9 @@ const ladder = require('./ladder');
 const match = require('./match');
 const baseTypeDefs = require('@utils/gqlLoader')('api/base.graphql');
 const merge = require('lodash/merge');
-const User = require('@models/User');
-const Ladder = require('@models/Ladder');
-const Match = require('@models/Match');
+const { User } = require('@models');
+const { Ladder } = require('@models');
+const { Match } = require('@models');
 
 /**
  * All type definitions are defined in .graphql files, which are just strings.

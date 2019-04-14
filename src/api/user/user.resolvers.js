@@ -27,5 +27,12 @@ module.exports = {
         updatedAt(user) {
             return user.updated_at;
         },
+        async ladders(user, _, ctx) {
+            const userModel = await ctx.models.user.findOne({
+                where: { user_id: user.user_id },
+                include: [ctx.models.ladder],
+            });
+            return userModel.ladders;
+        },
     },
 };

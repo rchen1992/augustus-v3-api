@@ -3,6 +3,7 @@ type User implements Node {
     email: String
     userName: String!
     avatarUrl: String
+    ladders: [Ladder!]!
     createdAt: String
     updatedAt: String
 }
