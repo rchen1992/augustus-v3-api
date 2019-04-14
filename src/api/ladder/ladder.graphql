@@ -4,6 +4,8 @@ type Ladder implements Node {
     inviteToken: String!
     createdAt: String
     updatedAt: String
+    userRating: Int
+    userRatingDelta: Int
 }
 
 extend type Query {

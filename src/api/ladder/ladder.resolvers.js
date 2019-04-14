@@ -27,5 +27,11 @@ module.exports = {
         updatedAt(ladder) {
             return ladder.updated_at;
         },
+        userRating(ladder) {
+            return ladder.ladder_user ? ladder.ladder_user.rating : null;
+        },
+        userRatingDelta(ladder) {
+            return ladder.ladder_user ? ladder.ladder_user.rating_delta : null;
+        },
     },
 };

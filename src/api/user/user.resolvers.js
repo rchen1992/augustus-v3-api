@@ -32,6 +32,7 @@ module.exports = {
                 where: { user_id: user.user_id },
                 include: [ctx.models.ladder],
             });
+            console.log(userModel.ladders);
             return userModel.ladders;
         },
     },
