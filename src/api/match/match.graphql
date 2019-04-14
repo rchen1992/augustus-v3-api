@@ -7,4 +7,5 @@ type Match implements Node {
 
 extend type Query {
     matches: [Match!]!
+    match(id: ID!): Match
 }
