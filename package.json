@@ -28,6 +28,7 @@
     "_moduleAliases": {
         "@database": "database",
         "@models": "src/models",
-        "@utils": "src/utils"
+        "@utils": "src/utils",
+        "@repos": "src/repos"
     }
 }

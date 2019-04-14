@@ -1,9 +1,9 @@
 const users = (_, __, ctx) => {
-    return ctx.models.user.findAll();
+    return ctx.repos.user.getAllUsers();
 };
 
 const user = (_, args, ctx) => {
-    return ctx.models.user.findByPk(args.id);
+    return ctx.repos.user.getUserById(args.id);
 };
 
 module.exports = {
@@ -28,12 +28,11 @@ module.exports = {
             return user.updated_at;
         },
         async ladders(user, _, ctx) {
-            const userModel = await ctx.models.user.findOne({
-                where: { user_id: user.user_id },
-                include: [ctx.models.ladder],
-            });
-            console.log(userModel.ladders);
+            const userModel = await ctx.repos.user.getUserWithLadders(user.user_id);
             return userModel.ladders;
+        },
+        matches(user, _, ctx) {
+            return ctx.repos.match.getMatchesByUser(user.user_id);
         },
     },
 };

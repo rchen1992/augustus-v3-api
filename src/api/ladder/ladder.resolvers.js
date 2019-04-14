@@ -1,9 +1,9 @@
 const ladders = (_, __, ctx) => {
-    return ctx.models.ladder.findAll();
+    return ctx.repos.ladder.getAllLadders();
 };
 
 const ladder = (_, args, ctx) => {
-    return ctx.models.ladder.findByPk(args.id);
+    return ctx.repos.ladder.getLadderById(args.id);
 };
 
 module.exports = {

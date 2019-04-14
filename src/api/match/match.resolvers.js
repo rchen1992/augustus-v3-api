@@ -1,9 +1,9 @@
 const matches = (_, __, ctx) => {
-    return ctx.models.match.findAll();
+    return ctx.repos.match.getAllMatches();
 };
 
 const match = (_, args, ctx) => {
-    return ctx.models.match.findByPk(args.id);
+    return ctx.repos.match.getMatchById(args.id);
 };
 
 module.exports = {

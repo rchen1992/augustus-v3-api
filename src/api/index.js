@@ -3,9 +3,9 @@ const ladder = require('./ladder');
 const match = require('./match');
 const baseTypeDefs = require('@utils/gqlLoader')('api/base.graphql');
 const merge = require('lodash/merge');
-const { User } = require('@models');
-const { Ladder } = require('@models');
-const { Match } = require('@models');
+const userRepo = require('@repos/userRepo');
+const matchRepo = require('@repos/matchRepo');
+const ladderRepo = require('@repos/ladderRepo');
 
 /**
  * All type definitions are defined in .graphql files, which are just strings.
@@ -27,10 +27,10 @@ module.exports = {
     typeDefs: mergeTypeDefs([user.typeDefs, ladder.typeDefs, match.typeDefs]),
     resolvers: mergeResolvers([user.resolvers, ladder.resolvers, match.resolvers]),
     context: {
-        models: {
-            user: User,
-            ladder: Ladder,
-            match: Match,
+        repos: {
+            user: userRepo,
+            match: matchRepo,
+            ladder: ladderRepo,
         },
     },
 };
