@@ -2,9 +2,14 @@ const users = (_, __, ctx) => {
     return ctx.models.user.findAll();
 };
 
+const user = (_, args, ctx) => {
+    return ctx.models.user.findByPk(args.id);
+};
+
 module.exports = {
     Query: {
         users,
+        user,
     },
     User: {
         id(user) {
