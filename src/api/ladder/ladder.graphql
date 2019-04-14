@@ -8,4 +8,5 @@ type Ladder implements Node {
 
 extend type Query {
     ladders: [Ladder!]!
+    ladder(id: ID!): Ladder
 }

@@ -2,9 +2,14 @@ const ladders = (_, __, ctx) => {
     return ctx.models.ladder.findAll();
 };
 
+const ladder = (_, args, ctx) => {
+    return ctx.models.ladder.findByPk(args.id);
+};
+
 module.exports = {
     Query: {
         ladders,
+        ladder,
     },
     Ladder: {
         id(ladder) {
