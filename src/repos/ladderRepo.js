@@ -1,15 +1,17 @@
 const { Ladder } = require('@models');
 
-function getAllLadders() {
-    return Ladder.findAll();
+function createLadderRepo(loaders) {
+    return {
+        async getAllLadders() {
+            const ladders = await Ladder.findAll();
+            return ladders.map(ladder => ladder.toJSON());
+        },
+
+        async getLadderById(ladderId) {
+            const ladder = await loaders.ladder.load(ladderId);
+            return ladder && ladder.toJSON();
+        },
+    };
 }
 
-async function getLadderById(ladderId) {
-    const ladder = await Ladder.findByPk(ladderId);
-    return ladder && ladder.toJSON();
-}
-
-module.exports = {
-    getAllLadders,
-    getLadderById,
-};
+module.exports = createLadderRepo;

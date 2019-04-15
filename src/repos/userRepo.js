@@ -1,24 +1,30 @@
-const { User, Ladder } = require('@models');
+const { User } = require('@models');
 
-function getAllUsers() {
-    return User.findAll();
+function createUserRepo(loaders) {
+    return {
+        async getAllUsers() {
+            const users = await User.findAll();
+            return users.map(user => user.toJSON());
+        },
+
+        async getUserById(userId) {
+            const user = await loaders.user.load(userId);
+            return user && user.toJSON();
+        },
+
+        async getUserWithLadders(userId) {
+            const user = await loaders.user.load(userId);
+            if (!user) {
+                return null;
+            }
+
+            const ladders = await user.getLadders();
+            return {
+                ...user.toJSON(),
+                ladders: ladders.map(ladder => ladder.toJSON()),
+            };
+        },
+    };
 }
 
-async function getUserById(userId) {
-    const user = await User.findByPk(userId);
-    return user && user.toJSON();
-}
-
-async function getUserWithLadders(userId) {
-    const user = await User.findByPk(userId, {
-        include: [Ladder],
-    });
-
-    return user && user.toJSON();
-}
-
-module.exports = {
-    getAllUsers,
-    getUserById,
-    getUserWithLadders,
-};
+module.exports = createUserRepo;

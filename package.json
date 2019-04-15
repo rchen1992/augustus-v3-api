@@ -12,6 +12,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "dataloader": "^1.4.0",
         "db-migrate": "^0.11.5",
         "db-migrate-pg": "^0.5.0",
         "dotenv": "^7.0.0",
@@ -29,6 +30,7 @@
         "@database": "database",
         "@models": "src/models",
         "@utils": "src/utils",
-        "@repos": "src/repos"
+        "@repos": "src/repos",
+        "@loaders": "src/loaders"
     }
 }
