@@ -3,6 +3,7 @@ type Match implements Node {
     tied: Boolean!
     createdAt: String
     updatedAt: String
+    ladder: Ladder!
 }
 
 extend type Query {

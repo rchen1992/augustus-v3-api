@@ -21,5 +21,9 @@ module.exports = {
         updatedAt(match) {
             return match.updated_at;
         },
+        async ladder(match, _, ctx) {
+            const matchModel = await ctx.repos.match.getMatchWithLadder(match.match_id);
+            return matchModel.ladder;
+        },
     },
 };

@@ -26,6 +26,19 @@ function createMatchRepo(loaders) {
                 }
             );
         },
+
+        async getMatchWithLadder(matchId) {
+            const match = await loaders.match.load(matchId);
+            if (!match) {
+                return null;
+            }
+
+            const ladder = await match.getLadder();
+            return {
+                ...match.toJSON(),
+                ladder: ladder && ladder.toJSON(),
+            };
+        },
     };
 }
 
