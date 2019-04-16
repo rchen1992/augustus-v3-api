@@ -4,6 +4,8 @@ type Match implements Node {
     createdAt: String
     updatedAt: String
     ladder: Ladder!
+    winner: User!
+    loser: User!
 }
 
 extend type Query {

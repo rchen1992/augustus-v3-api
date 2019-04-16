@@ -25,5 +25,13 @@ module.exports = {
             const matchModel = await ctx.repos.match.getMatchWithLadder(match.match_id);
             return matchModel.ladder;
         },
+        async winner(match, _, ctx) {
+            const matchModel = await ctx.repos.match.getMatchWithWinner(match.match_id);
+            return matchModel.winner;
+        },
+        async loser(match, _, ctx) {
+            const matchModel = await ctx.repos.match.getMatchWithLoser(match.match_id);
+            return matchModel.loser;
+        },
     },
 };
