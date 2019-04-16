@@ -24,6 +24,19 @@ function createLadderRepo(loaders) {
                 users: users.map(user => user.toJSON()),
             };
         },
+
+        async getLadderWithMatches(ladderId) {
+            const ladder = await loaders.ladder.load(ladderId);
+            if (!ladder) {
+                return null;
+            }
+
+            const matches = await ladder.getMatches();
+            return {
+                ...ladder.toJSON(),
+                matches: matches.map(match => match.toJSON()),
+            };
+        },
     };
 }
 

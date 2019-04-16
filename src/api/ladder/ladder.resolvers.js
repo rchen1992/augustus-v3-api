@@ -37,5 +37,9 @@ module.exports = {
             const ladderModel = await ctx.repos.ladder.getLadderWithUsers(ladder.ladder_id);
             return ladderModel.users;
         },
+        async matches(ladder, _, ctx) {
+            const ladderModel = await ctx.repos.ladder.getLadderWithMatches(ladder.ladder_id);
+            return ladderModel.matches;
+        },
     },
 };
