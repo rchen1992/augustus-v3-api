@@ -6,6 +6,7 @@ type Ladder implements Node {
     updatedAt: String
     userRating: Int
     userRatingDelta: Int
+    users: [User!]!
 }
 
 extend type Query {

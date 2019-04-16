@@ -11,6 +11,19 @@ function createLadderRepo(loaders) {
             const ladder = await loaders.ladder.load(ladderId);
             return ladder && ladder.toJSON();
         },
+
+        async getLadderWithUsers(ladderId) {
+            const ladder = await loaders.ladder.load(ladderId);
+            if (!ladder) {
+                return null;
+            }
+
+            const users = await ladder.getUsers();
+            return {
+                ...ladder.toJSON(),
+                users: users.map(user => user.toJSON()),
+            };
+        },
     };
 }
 
