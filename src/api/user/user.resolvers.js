@@ -34,5 +34,11 @@ module.exports = {
         matches(user, _, ctx) {
             return ctx.repos.match.getMatchesByUser(user.user_id);
         },
+        rating(user) {
+            return user.ladder_user ? user.ladder_user.rating : null;
+        },
+        ratingDelta(user) {
+            return user.ladder_user ? user.ladder_user.rating_delta : null;
+        },
     },
 };
