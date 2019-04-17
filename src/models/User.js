@@ -7,4 +7,5 @@ module.exports = createModel('user', {
     password: { type: Sequelize.TEXT },
     user_name: { type: Sequelize.CITEXT, unique: true },
     avatar_url: { type: Sequelize.TEXT, unique: true },
+    password: { type: Sequelize.TEXT },
 });
