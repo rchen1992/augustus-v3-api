@@ -7,7 +7,9 @@
         "db-up": "node ./node_modules/db-migrate/bin/db-migrate up --migrations-dir=./database/migrations --config=./database/database.json",
         "db-down": "node ./node_modules/db-migrate/bin/db-migrate reset --migrations-dir=./database/migrations --config=./database/database.json",
         "db-reset": "npm run db-down && npm run db-up",
-        "start": "nodemon -L --inspect=0.0.0.0:9229 src/index.js"
+        "start": "nodemon -L --inspect=0.0.0.0:9229 src/index.js",
+        "test": "jest",
+        "test:watch": "jest --watch"
     },
     "author": "",
     "license": "ISC",
@@ -24,13 +26,16 @@
         "sequelize": "^5.3.1"
     },
     "devDependencies": {
+        "jest": "^24.7.1",
         "nodemon": "^1.18.11"
     },
     "_moduleAliases": {
+        "@api": "src/api",
         "@database": "database",
         "@models": "src/models",
         "@utils": "src/utils",
         "@repos": "src/repos",
-        "@loaders": "src/loaders"
+        "@loaders": "src/loaders",
+        "@tests": "src/tests"
     }
 }
