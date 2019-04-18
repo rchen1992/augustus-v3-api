@@ -1,36 +1,9 @@
-const mockUserRepo = require('@tests/mockRepos/user');
 const { runQuery } = require('@tests/utils');
+const { queryTestCases } = require('./queries');
 
-const getAllUsersTestCase = {
-    id: 'Get all users basic data',
-    query: `
-        {
-            users {
-                id
-                userName
-                email
-                avatarUrl
-                createdAt
-                updatedAt
-            }
-        }
-    `,
-    variables: {},
-    context: () => {
-        return {
-            repos: {
-                user: mockUserRepo,
-            },
-        };
-    },
-    expected: null,
-};
-
-describe('User queries', () => {
-    const cases = [getAllUsersTestCase];
-
+describe('Queries', () => {
     // Running the test for each case in the cases array.
-    cases.forEach(obj => {
+    queryTestCases.forEach(obj => {
         const { id, query, variables, context, expected } = obj;
 
         test(`query: ${id}`, async () => {
