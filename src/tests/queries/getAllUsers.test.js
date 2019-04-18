@@ -1,6 +1,7 @@
 const mockUserRepo = require('@tests/mockRepos/user');
+const { testQuery } = require('@tests/utils');
 
-module.exports = {
+testQuery({
     id: 'Get all users basic data',
     query: `
         {
@@ -23,4 +24,4 @@ module.exports = {
         };
     },
     expected: null,
-};
+});

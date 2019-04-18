@@ -1,4 +1,4 @@
-const users = [
+const mockUsers = [
     {
         user_id: 1,
         email: 'mjurczak0@epa.gov',
@@ -46,7 +46,7 @@ const users = [
     },
 ];
 
-const ladders = [
+const mockLadders = [
     [
         {
             ladder_id: 1,
@@ -86,7 +86,7 @@ const ladders = [
     ],
 ];
 
-const matches = [
+const mockMatches = [
     {
         match_id: 1,
         ladder_id: 1,
@@ -144,8 +144,166 @@ const matches = [
     },
 ];
 
+const mockLadderUsers = [
+    [
+        {
+            ladder_id: 1,
+            user_id: 1,
+            rating: 160,
+            rating_delta: 30,
+            created_at: '2018-12-11 09:39:31',
+            updated_at: '2018-10-09 01:00:11',
+        },
+        {
+            ladder_id: 2,
+            user_id: 1,
+            rating: 100,
+            rating_delta: 30,
+            created_at: '2018-07-24 06:11:55',
+            updated_at: '2018-11-30 11:49:27',
+        },
+        {
+            ladder_id: 3,
+            user_id: 1,
+            rating: 140,
+            rating_delta: 20,
+            created_at: '2019-03-09 02:50:35',
+            updated_at: '2018-05-12 22:57:50',
+        },
+        {
+            ladder_id: 4,
+            user_id: 1,
+            rating: 200,
+            rating_delta: -5,
+            created_at: '2018-07-13 12:03:47',
+            updated_at: '2018-12-13 09:57:15',
+        },
+        {
+            ladder_id: 5,
+            user_id: 1,
+            rating: 100,
+            rating_delta: -10,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 1,
+            user_id: 2,
+            rating: 70,
+            rating_delta: 30,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 2,
+            user_id: 2,
+            rating: 200,
+            rating_delta: 20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 3,
+            user_id: 2,
+            rating: 220,
+            rating_delta: 20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 4,
+            user_id: 2,
+            rating: 260,
+            rating_delta: -20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 5,
+            user_id: 2,
+            rating: 110,
+            rating_delta: -20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 1,
+            user_id: 3,
+            rating: 110,
+            rating_delta: -20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 3,
+            user_id: 3,
+            rating: 90,
+            rating_delta: -20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 5,
+            user_id: 3,
+            rating: 200,
+            rating_delta: 20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 2,
+            user_id: 4,
+            rating: 200,
+            rating_delta: 20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 4,
+            user_id: 4,
+            rating: 100,
+            rating_delta: 30,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 1,
+            user_id: 5,
+            rating: 140,
+            rating_delta: 40,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 2,
+            user_id: 5,
+            rating: 120,
+            rating_delta: 20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 4,
+            user_id: 5,
+            rating: 140,
+            rating_delta: -20,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+        {
+            ladder_id: 5,
+            user_id: 5,
+            rating: 160,
+            rating_delta: 10,
+            created_at: '2018-09-27 20:12:13',
+            updated_at: '2018-05-28 10:49:38',
+        },
+    ],
+];
+
 module.exports = {
-    users,
-    ladders,
-    matches,
+    mockUsers,
+    mockLadders,
+    mockMatches,
+    mockLadderUsers,
 };

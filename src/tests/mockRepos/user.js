@@ -1,16 +1,29 @@
-const { users } = require('@tests/mockData/dataSet');
+const { mockUsers, mockLadderUsers } = require('@tests/mockData/dataSet');
+const mockLadderRepo = require('./ladder');
 
 module.exports = {
     getAllUsers() {
-        return users;
+        return mockUsers;
     },
 
     getUserById(userId) {
-        return users.find(user => userId === user.user_id);
+        return mockUsers.find(user => userId === user.user_id);
     },
 
     getUserWithLadders(userId) {
         const user = getUserById(userId);
-        // TODO: get user ladders
+        const ladderUsers = mockLadderUsers.find(ladderUser => ladderUser.user_id === userId);
+        const ladders = ladderUsers.map(ladderUser => {
+            const ladder = mockLadderRepo.getLadderById(ladderUser.ladder_id);
+            return {
+                ...ladder,
+                ladder_user: ladderUser,
+            };
+        });
+
+        return {
+            ...user,
+            ladders,
+        };
     },
 };
