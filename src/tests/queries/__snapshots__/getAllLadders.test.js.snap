@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get all ladders basic data 1`] = `
+Object {
+  "data": Object {
+    "ladders": Array [
+      Object {
+        "createdAt": "2018-12-11 09:39:31",
+        "id": "1",
+        "inviteToken": "tRJcyp2Jkr13",
+        "ladderName": "Tagpad",
+        "updatedAt": "2018-10-09 01:00:11",
+      },
+      Object {
+        "createdAt": "2018-07-24 06:11:55",
+        "id": "2",
+        "inviteToken": "3dV982mqxe4",
+        "ladderName": "Kamba",
+        "updatedAt": "2018-11-30 11:49:27",
+      },
+      Object {
+        "createdAt": "2019-03-09 02:50:35",
+        "id": "3",
+        "inviteToken": "45m5WON",
+        "ladderName": "Skyvu",
+        "updatedAt": "2018-05-12 22:57:50",
+      },
+      Object {
+        "createdAt": "2018-07-13 12:03:47",
+        "id": "4",
+        "inviteToken": "YvfJv4dPZ",
+        "ladderName": "Thoughtworks",
+        "updatedAt": "2018-12-13 09:57:15",
+      },
+      Object {
+        "createdAt": "2018-09-27 20:12:13",
+        "id": "5",
+        "inviteToken": "WvKL1RiHid0",
+        "ladderName": "Yakijo",
+        "updatedAt": "2018-05-28 10:49:38",
+      },
+    ],
+  },
+}
+`;

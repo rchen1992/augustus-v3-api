@@ -47,43 +47,41 @@ const mockUsers = [
 ];
 
 const mockLadders = [
-    [
-        {
-            ladder_id: 1,
-            ladder_name: 'Tagpad',
-            invite_token: 'tRJcyp2Jkr13',
-            created_at: '2018-12-11 09:39:31',
-            updated_at: '2018-10-09 01:00:11',
-        },
-        {
-            ladder_id: 2,
-            ladder_name: 'Kamba',
-            invite_token: '3dV982mqxe4',
-            created_at: '2018-07-24 06:11:55',
-            updated_at: '2018-11-30 11:49:27',
-        },
-        {
-            ladder_id: 3,
-            ladder_name: 'Skyvu',
-            invite_token: '45m5WON',
-            created_at: '2019-03-09 02:50:35',
-            updated_at: '2018-05-12 22:57:50',
-        },
-        {
-            ladder_id: 4,
-            ladder_name: 'Thoughtworks',
-            invite_token: 'YvfJv4dPZ',
-            created_at: '2018-07-13 12:03:47',
-            updated_at: '2018-12-13 09:57:15',
-        },
-        {
-            ladder_id: 5,
-            ladder_name: 'Yakijo',
-            invite_token: 'WvKL1RiHid0',
-            created_at: '2018-09-27 20:12:13',
-            updated_at: '2018-05-28 10:49:38',
-        },
-    ],
+    {
+        ladder_id: 1,
+        ladder_name: 'Tagpad',
+        invite_token: 'tRJcyp2Jkr13',
+        created_at: '2018-12-11 09:39:31',
+        updated_at: '2018-10-09 01:00:11',
+    },
+    {
+        ladder_id: 2,
+        ladder_name: 'Kamba',
+        invite_token: '3dV982mqxe4',
+        created_at: '2018-07-24 06:11:55',
+        updated_at: '2018-11-30 11:49:27',
+    },
+    {
+        ladder_id: 3,
+        ladder_name: 'Skyvu',
+        invite_token: '45m5WON',
+        created_at: '2019-03-09 02:50:35',
+        updated_at: '2018-05-12 22:57:50',
+    },
+    {
+        ladder_id: 4,
+        ladder_name: 'Thoughtworks',
+        invite_token: 'YvfJv4dPZ',
+        created_at: '2018-07-13 12:03:47',
+        updated_at: '2018-12-13 09:57:15',
+    },
+    {
+        ladder_id: 5,
+        ladder_name: 'Yakijo',
+        invite_token: 'WvKL1RiHid0',
+        created_at: '2018-09-27 20:12:13',
+        updated_at: '2018-05-28 10:49:38',
+    },
 ];
 
 const mockMatches = [
