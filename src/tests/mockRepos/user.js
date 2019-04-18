@@ -7,12 +7,12 @@ module.exports = {
     },
 
     getUserById(userId) {
-        return mockUsers.find(user => userId === user.user_id);
+        return mockUsers.find(user => userId == user.user_id);
     },
 
     getUserWithLadders(userId) {
-        const user = getUserById(userId);
-        const ladderUsers = mockLadderUsers.find(ladderUser => ladderUser.user_id === userId);
+        const user = this.getUserById(userId);
+        const ladderUsers = mockLadderUsers.filter(ladderUser => ladderUser.user_id === userId);
         const ladders = ladderUsers.map(ladderUser => {
             const ladder = mockLadderRepo.getLadderById(ladderUser.ladder_id);
             return {

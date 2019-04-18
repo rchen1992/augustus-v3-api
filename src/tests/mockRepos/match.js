@@ -6,6 +6,6 @@ module.exports = {
     },
 
     getMatchById(matchId) {
-        return mockMatches.find(match => matchId === match.match_id);
+        return mockMatches.find(match => matchId == match.match_id);
     },
 };

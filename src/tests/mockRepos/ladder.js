@@ -6,6 +6,6 @@ module.exports = {
     },
 
     getLadderById(ladderId) {
-        return mockLadders.find(ladder => ladderId === ladder.ladder_id);
+        return mockLadders.find(ladder => ladderId == ladder.ladder_id);
     },
 };
