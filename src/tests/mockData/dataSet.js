@@ -142,6 +142,12 @@ const mockMatches = [
     },
 ];
 
+/**
+ * User 1 and 2 are in all ladders.
+ * User 3 is in ladders 1,3,5.
+ * User 4 is in ladders 2,4.
+ * User 5 is in ladders 1,2,4,5.
+ */
 const mockLadderUsers = [
     {
         ladder_id: 1,
