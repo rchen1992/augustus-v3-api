@@ -27,7 +27,7 @@ function testQuery(testCase) {
          * If we provide an expected result, check against it.
          * Otherwise, just use snapshot testing.
          */
-        if (expected) {
+        if (expected !== undefined) {
             return expect(result).toEqual(expected);
         } else {
             return expect(result).toMatchSnapshot();

@@ -23,5 +23,5 @@ testQuery({
             },
         };
     },
-    expected: null,
+    expected: undefined,
 });
