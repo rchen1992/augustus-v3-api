@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get a user's ratings and rating deltas in all of their ladders 1`] = `
+Object {
+  "data": Object {
+    "user": Object {
+      "id": "1",
+      "ladders": Array [
+        Object {
+          "id": "1",
+          "ladderName": "Tagpad",
+          "userRating": 160,
+          "userRatingDelta": 30,
+        },
+        Object {
+          "id": "2",
+          "ladderName": "Kamba",
+          "userRating": 100,
+          "userRatingDelta": 30,
+        },
+        Object {
+          "id": "3",
+          "ladderName": "Skyvu",
+          "userRating": 140,
+          "userRatingDelta": 20,
+        },
+        Object {
+          "id": "4",
+          "ladderName": "Thoughtworks",
+          "userRating": 200,
+          "userRatingDelta": -5,
+        },
+        Object {
+          "id": "5",
+          "ladderName": "Yakijo",
+          "userRating": 100,
+          "userRatingDelta": -10,
+        },
+      ],
+    },
+  },
+}
+`;

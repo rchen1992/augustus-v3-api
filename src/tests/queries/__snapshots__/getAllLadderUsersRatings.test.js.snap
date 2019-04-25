@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get user ratings for all users in a ladder 1`] = `
+Object {
+  "data": Object {
+    "ladder": Object {
+      "id": "1",
+      "users": Array [
+        Object {
+          "id": "1",
+          "rating": 160,
+          "ratingDelta": 30,
+          "userName": "cblanko0",
+        },
+        Object {
+          "id": "2",
+          "rating": 70,
+          "ratingDelta": 30,
+          "userName": "csaye1",
+        },
+        Object {
+          "id": "3",
+          "rating": 110,
+          "ratingDelta": -20,
+          "userName": "cburchell2",
+        },
+        Object {
+          "id": "5",
+          "rating": 140,
+          "ratingDelta": 40,
+          "userName": "selcott4",
+        },
+      ],
+    },
+  },
+}
+`;

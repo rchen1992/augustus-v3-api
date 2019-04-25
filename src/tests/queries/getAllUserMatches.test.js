@@ -1,4 +1,5 @@
 const mockMatchRepo = require('@tests/mockRepos/match');
+const mockUserRepo = require('@tests/mockRepos/user');
 const { testQuery } = require('@tests/utils');
 
 testQuery({
@@ -18,6 +19,7 @@ testQuery({
         return {
             repos: {
                 match: mockMatchRepo,
+                user: mockUserRepo,
             },
         };
     },

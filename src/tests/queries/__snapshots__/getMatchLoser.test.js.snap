@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get a match's loser 1`] = `
+Object {
+  "data": Object {
+    "match": Object {
+      "id": "1",
+      "loser": Object {
+        "id": "2",
+        "userName": "csaye1",
+      },
+    },
+  },
+}
+`;

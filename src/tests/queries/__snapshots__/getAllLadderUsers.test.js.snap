@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get all of a ladder's users 1`] = `
+Object {
+  "data": Object {
+    "ladder": Object {
+      "id": "1",
+      "users": Array [
+        Object {
+          "id": "1",
+          "userName": "cblanko0",
+        },
+        Object {
+          "id": "2",
+          "userName": "csaye1",
+        },
+        Object {
+          "id": "3",
+          "userName": "cburchell2",
+        },
+        Object {
+          "id": "5",
+          "userName": "selcott4",
+        },
+      ],
+    },
+  },
+}
+`;

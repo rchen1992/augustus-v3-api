@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get all of a ladder's matches 1`] = `
+Object {
+  "data": Object {
+    "ladder": Object {
+      "id": "1",
+      "matches": Array [
+        Object {
+          "id": "1",
+        },
+      ],
+    },
+  },
+}
+`;

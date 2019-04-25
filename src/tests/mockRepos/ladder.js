@@ -1,4 +1,4 @@
-const { mockLadders, mockMatches } = require('@tests/mockData/dataSet');
+const { mockLadders, mockMatches, mockLadderUsers } = require('@tests/mockData/dataSet');
 const mockUserRepo = require('./user');
 
 module.exports = {
@@ -12,9 +12,7 @@ module.exports = {
 
     getLadderWithUsers(ladderId) {
         const ladder = this.getLadderById(ladderId);
-        const ladderUsers = mockLadderUsers.filter(
-            ladderUser => ladderUser.ladder_id === ladder_id
-        );
+        const ladderUsers = mockLadderUsers.filter(ladderUser => ladderUser.ladder_id === ladderId);
         const users = ladderUsers.map(ladderUser => {
             const user = mockUserRepo.getUserById(ladderUser.user_id);
             return {
