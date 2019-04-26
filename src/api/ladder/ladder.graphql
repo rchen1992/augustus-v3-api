@@ -14,3 +14,7 @@ extend type Query {
     ladders: [Ladder!]!
     ladder(id: ID!): Ladder
 }
+
+extend type Mutation {
+    newLadder(ladderName: String!, userId: ID!): Ladder!
+}

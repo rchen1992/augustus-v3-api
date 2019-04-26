@@ -1,4 +1,9 @@
 const { Ladder } = require('@models');
+const faker = require('faker');
+
+function generateInviteToken() {
+    return faker.random.alphaNumeric(8);
+}
 
 function createLadderRepo(loaders) {
     return {
@@ -36,6 +41,15 @@ function createLadderRepo(loaders) {
                 ...ladder.toJSON(),
                 matches: matches.map(match => match.toJSON()),
             };
+        },
+
+        async createLadder(ladderName) {
+            const ladder = await Ladder.create({
+                ladder_name: ladderName,
+                invite_token: generateInviteToken(),
+            });
+
+            return ladder.toJSON();
         },
     };
 }

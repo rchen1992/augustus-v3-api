@@ -6,10 +6,17 @@ const ladder = (_, args, ctx) => {
     return ctx.repos.ladder.getLadderById(args.id);
 };
 
+const newLadder = (_, args, ctx) => {
+    return ctx.services.ladder.newLadder(args.ladderName, args.userId);
+};
+
 module.exports = {
     Query: {
         ladders,
         ladder,
+    },
+    Mutation: {
+        newLadder,
     },
     Ladder: {
         id(ladder) {
