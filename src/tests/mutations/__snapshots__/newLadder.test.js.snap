@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Create new ladder 1`] = `
+Object {
+  "data": Object {
+    "newLadder": Object {
+      "id": "10",
+      "inviteToken": "tRJcyp2Jkr13",
+      "ladderName": "My New Ladder",
+      "userRating": 1000,
+      "userRatingDelta": 0,
+    },
+  },
+}
+`;
