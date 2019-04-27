@@ -69,9 +69,20 @@ function createMatchRepo(loaders) {
             return _getMatchWithUser(matchId, 'loser_id', 'loser');
         },
 
-        // async createMatch(ladderId, user1Id, user2Id, winnerId = null, loserId = null) {
-        //     const tied = winnerId === null && loserId === null;
-        // },
+        async createMatch(ladderId, user1Id, user2Id, winnerId = null, loserId = null) {
+            let tied = winnerId === null && loserId === null;
+
+            const match = await Match.create({
+                ladder_id: ladderId,
+                user_1_id: user1Id,
+                user_2_id: user2Id,
+                winner_id: winnerId,
+                loser_id: loserId,
+                tied,
+            });
+
+            return match.toJSON();
+        },
     };
 }
 

@@ -18,6 +18,7 @@
         "db-migrate": "^0.11.5",
         "db-migrate-pg": "^0.5.0",
         "dotenv": "^7.0.0",
+        "elo-js": "^1.0.1",
         "faker": "^4.1.0",
         "graphql-yoga": "^1.17.4",
         "lodash": "^4.17.11",
@@ -33,6 +34,7 @@
     "_moduleAliases": {
         "@api": "src/api",
         "@database": "database",
+        "@helpers": "src/helpers",
         "@loaders": "src/loaders",
         "@models": "src/models",
         "@repos": "src/repos",

@@ -10,7 +10,19 @@ type Match implements Node {
     loser: User!
 }
 
+input NewMatchInput {
+    ladderId: ID!
+    user1Id: ID!
+    user2Id: ID!
+    winnerId: ID!
+    loserId: ID!
+}
+
 extend type Query {
     matches: [Match!]!
     match(id: ID!): Match
+}
+
+extend type Mutation {
+    newMatch(input: NewMatchInput!): Match!
 }

@@ -6,10 +6,18 @@ const match = (_, args, ctx) => {
     return ctx.repos.match.getMatchById(args.id);
 };
 
+const newMatch = (_, args, ctx) => {
+    const { ladderId, user1Id, user2Id, winnerId, loserId } = args.input;
+    return ctx.services.match.newMatch(ladderId, user1Id, user2Id, winnerId, loserId);
+};
+
 module.exports = {
     Query: {
         matches,
         match,
+    },
+    Mutation: {
+        newMatch,
     },
     Match: {
         id(match) {
