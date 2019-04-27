@@ -24,21 +24,28 @@ module.exports = {
         };
     },
 
+    getMatchWithUser1(matchId) {
+        return this._getMatchWithUser(matchId, 'user_1_id', 'user1');
+    },
+
+    getMatchWithUser2(matchId) {
+        return this._getMatchWithUser(matchId, 'user_2_id', 'user2');
+    },
+
     getMatchWithWinner(matchId) {
-        const match = this.getMatchById(matchId);
-        const winner = mockUserRepo.getUserById(match.winner_id);
-        return {
-            ...match,
-            winner,
-        };
+        return this._getMatchWithUser(matchId, 'winner_id', 'winner');
     },
 
     getMatchWithLoser(matchId) {
+        return this._getMatchWithUser(matchId, 'loser_id', 'loser');
+    },
+
+    _getMatchWithUser(matchId, userIdKey, returnedUserKeyName) {
         const match = this.getMatchById(matchId);
-        const loser = mockUserRepo.getUserById(match.loser_id);
+        const user = mockUserRepo.getUserById(match[userIdKey]);
         return {
             ...match,
-            loser,
+            [returnedUserKeyName]: user,
         };
     },
 };

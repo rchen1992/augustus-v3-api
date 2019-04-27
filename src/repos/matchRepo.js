@@ -53,6 +53,14 @@ function createMatchRepo(loaders) {
             };
         },
 
+        getMatchWithUser1(matchId) {
+            return _getMatchWithUser(matchId, 'user_1_id', 'user1');
+        },
+
+        getMatchWithUser2(matchId) {
+            return _getMatchWithUser(matchId, 'user_2_id', 'user2');
+        },
+
         getMatchWithWinner(matchId) {
             return _getMatchWithUser(matchId, 'winner_id', 'winner');
         },
@@ -60,6 +68,10 @@ function createMatchRepo(loaders) {
         getMatchWithLoser(matchId) {
             return _getMatchWithUser(matchId, 'loser_id', 'loser');
         },
+
+        // async createMatch(ladderId, user1Id, user2Id, winnerId = null, loserId = null) {
+        //     const tied = winnerId === null && loserId === null;
+        // },
     };
 }
 

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get a match's 2 users 1`] = `
+Object {
+  "data": Object {
+    "match": Object {
+      "id": "1",
+      "user1": Object {
+        "id": "1",
+        "userName": "cblanko0",
+      },
+      "user2": Object {
+        "id": "2",
+        "userName": "csaye1",
+      },
+    },
+  },
+}
+`;

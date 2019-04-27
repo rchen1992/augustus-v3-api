@@ -3,6 +3,8 @@ type Match implements Node {
     tied: Boolean!
     createdAt: String
     updatedAt: String
+    user1: User!
+    user2: User!
     ladder: Ladder!
     winner: User!
     loser: User!
