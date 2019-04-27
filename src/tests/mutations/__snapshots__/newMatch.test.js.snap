@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Create new match 1`] = `
+Object {
+  "data": Object {
+    "newMatch": Object {
+      "id": "10",
+      "tied": false,
+    },
+  },
+}
+`;
