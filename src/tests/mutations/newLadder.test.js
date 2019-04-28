@@ -6,8 +6,8 @@ const ladderName = 'My New Ladder';
 testQuery({
     id: 'Create new ladder',
     query: `
-        mutation createLadder($ladderName: String!, $userId: ID!) {
-            newLadder(ladderName: $ladderName, userId: $userId) {
+        mutation createLadder($ladderName: String!) {
+            newLadder(ladderName: $ladderName) {
                 id
                 ladderName
                 inviteToken
@@ -22,6 +22,9 @@ testQuery({
     },
     context: () => {
         return {
+            currentUser: {
+                user_id: userId,
+            },
             services: {
                 ladder: {
                     newLadder() {

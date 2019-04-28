@@ -1,3 +1,5 @@
+const authenticated = require('@guards/authenticated');
+
 const ladders = (_, __, ctx) => {
     return ctx.repos.ladder.getAllLadders();
 };
@@ -7,7 +9,7 @@ const ladder = (_, args, ctx) => {
 };
 
 const newLadder = (_, args, ctx) => {
-    return ctx.services.ladder.newLadder(args.ladderName, args.userId);
+    return ctx.services.ladder.newLadder(args.ladderName, ctx.currentUser.user_id);
 };
 
 module.exports = {
@@ -16,7 +18,7 @@ module.exports = {
         ladder,
     },
     Mutation: {
-        newLadder,
+        newLadder: authenticated(newLadder),
     },
     Ladder: {
         id(ladder) {

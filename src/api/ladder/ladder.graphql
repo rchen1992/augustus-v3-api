@@ -16,5 +16,5 @@ extend type Query {
 }
 
 extend type Mutation {
-    newLadder(ladderName: String!, userId: ID!): Ladder!
+    newLadder(ladderName: String!): Ladder!
 }
