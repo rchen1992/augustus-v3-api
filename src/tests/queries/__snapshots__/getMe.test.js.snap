@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get current user 1`] = `
+Object {
+  "data": Object {
+    "me": Object {
+      "createdAt": "2018-12-11 09:39:31",
+      "email": "newboi@gmail.com",
+      "id": "10",
+      "userName": "newboi",
+    },
+  },
+}
+`;
