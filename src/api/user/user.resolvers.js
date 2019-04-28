@@ -1,5 +1,5 @@
 const authenticated = require('@guards/authenticated');
-const userAuthorized = require('@guards/userAuthorized');
+const { userAuthorized } = require('@guards/user');
 
 const users = (_, __, ctx) => {
     return ctx.repos.user.getAllUsers();
