@@ -8,7 +8,19 @@ const user = (_, args, ctx) => {
 
 const signup = async (_, args, ctx) => {
     const { userName, password, email } = args.input;
-    const user = await ctx.services.user.newUser(userName, password, email);
+    const user = await ctx.services.auth.signup(userName, password, email);
+
+    // Set userId into session
+    if (user && user.user_id) {
+        ctx.req.session.userId = user.user_id;
+    }
+
+    return user;
+};
+
+const login = async (_, args, ctx) => {
+    const { userName, password } = args.input;
+    const user = await ctx.services.auth.login(userName, password);
 
     // Set userId into session
     if (user && user.user_id) {
@@ -25,6 +37,7 @@ module.exports = {
     },
     Mutation: {
         signup,
+        login,
     },
     User: {
         id(user) {

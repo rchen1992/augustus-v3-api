@@ -11,7 +11,7 @@ const createLadderRepo = require('@repos/ladderRepo');
 const createLadderUserRepo = require('@repos/ladderUserRepo');
 const createLadderService = require('@services/ladderService');
 const createMatchService = require('@services/matchService');
-const createUserService = require('@services/userService');
+const createAuthService = require('@services/authService');
 
 /**
  * All type definitions are defined in .graphql files, which are just strings.
@@ -49,7 +49,7 @@ module.exports = {
                 ladder: ladderRepo,
             },
             services: {
-                user: createUserService(userRepo),
+                auth: createAuthService(userRepo),
                 ladder: createLadderService(ladderRepo, ladderUserRepo),
                 match: createMatchService(matchRepo, ladderUserRepo),
             },

@@ -26,8 +26,8 @@ testQuery({
     context: () => {
         return {
             services: {
-                user: {
-                    newUser() {
+                auth: {
+                    signup() {
                         return {
                             user_id: 10,
                             user_name: userName,
