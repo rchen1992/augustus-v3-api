@@ -6,9 +6,16 @@ const user = (_, args, ctx) => {
     return ctx.repos.user.getUserById(args.id);
 };
 
-const signup = (_, args, ctx) => {
+const signup = async (_, args, ctx) => {
     const { userName, password, email } = args.input;
-    return ctx.services.user.newUser(userName, password, email);
+    const user = await ctx.services.user.newUser(userName, password, email);
+
+    // Set userId into session
+    if (user && user.user_id) {
+        ctx.req.session.userId = user.user_id;
+    }
+
+    return user;
 };
 
 module.exports = {

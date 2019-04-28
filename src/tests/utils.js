@@ -10,7 +10,9 @@ const { merge } = require('lodash');
 function runQuery(query, variables = {}, ctx = {}) {
     const schema = makeExecutableSchema({ typeDefs, resolvers });
     const mockReq = {
-        request: {},
+        request: {
+            session: {},
+        },
         response: {},
     };
     const computedCtx = typeof ctx === 'function' ? ctx() : ctx;

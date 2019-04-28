@@ -4,6 +4,7 @@ const { GraphQLServer } = require('graphql-yoga');
 const gqlServerConfig = require('./api');
 const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
+const pgPool = require('@database/db');
 
 const serverOptions = {
     port: 8080,
@@ -24,6 +25,7 @@ server.express.use(
     session({
         // session store instance
         store: new pgSession({
+            pool: pgPool,
             // prune sessions once every 2 days
             pruneSessionInterval: 60 * 60 * 24 * 2,
         }),
