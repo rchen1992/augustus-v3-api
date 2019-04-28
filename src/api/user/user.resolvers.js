@@ -6,10 +6,18 @@ const user = (_, args, ctx) => {
     return ctx.repos.user.getUserById(args.id);
 };
 
+const signup = (_, args, ctx) => {
+    const { userName, password, email } = args.input;
+    return ctx.services.user.newUser(userName, password, email);
+};
+
 module.exports = {
     Query: {
         users,
         user,
+    },
+    Mutation: {
+        signup,
     },
     User: {
         id(user) {

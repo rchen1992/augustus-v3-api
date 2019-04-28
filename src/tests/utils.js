@@ -9,8 +9,12 @@ const { merge } = require('lodash');
  */
 function runQuery(query, variables = {}, ctx = {}) {
     const schema = makeExecutableSchema({ typeDefs, resolvers });
+    const mockReq = {
+        request: {},
+        response: {},
+    };
     const computedCtx = typeof ctx === 'function' ? ctx() : ctx;
-    return graphql(schema, query, null, merge({}, context(), computedCtx), variables);
+    return graphql(schema, query, null, merge({}, context(mockReq), computedCtx), variables);
 }
 
 /**

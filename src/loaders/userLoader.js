@@ -10,6 +10,15 @@ function createUserLoader() {
     });
 }
 
+function createUserByNameLoader() {
+    return new DataLoader(async userNames => {
+        const users = await User.findAll({ where: { user_name: userNames } });
+        console.log('user by name loader batch: length ', userNames.length);
+        return orderLoaderResult(userNames, users, 'user_name');
+    });
+}
+
 module.exports = {
     createUserLoader,
+    createUserByNameLoader,
 };
