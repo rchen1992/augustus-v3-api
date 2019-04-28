@@ -21,6 +21,9 @@ testQuery({
     },
     context: () => {
         return {
+            currentUser: {
+                user_id: '1',
+            },
             services: {
                 match: {
                     newMatch() {

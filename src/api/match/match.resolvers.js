@@ -1,3 +1,5 @@
+const { validateNewMatch } = require('@guards/match');
+
 const matches = (_, __, ctx) => {
     return ctx.repos.match.getAllMatches();
 };
@@ -17,7 +19,7 @@ module.exports = {
         match,
     },
     Mutation: {
-        newMatch,
+        newMatch: validateNewMatch(newMatch),
     },
     Match: {
         id(match) {
