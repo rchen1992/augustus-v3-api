@@ -2,14 +2,12 @@ const { testQuery } = require('@tests/utils');
 
 const userId = 10;
 const userName = 'newboi';
-const password = 'password1';
-const email = 'newboi@gmail.com';
 
 testQuery({
-    id: 'Sign up a new user',
+    id: 'Log in an existing user',
     query: `
-        mutation signup($input: SignupInput!) {
-            signup(input: $input) {
+        mutation login($input: LoginInput!) {
+            login(input: $input) {
                 id
                 userName
                 email
@@ -20,19 +18,18 @@ testQuery({
     variables: {
         input: {
             userName,
-            password,
-            email,
+            password: 'password1',
         },
     },
     context: () => {
         return {
             services: {
                 auth: {
-                    signup() {
+                    login() {
                         return {
                             user_id: userId,
                             user_name: userName,
-                            email,
+                            email: 'newboi@gmail.com',
                             created_at: '2018-12-11 09:39:31',
                             updated_at: '2018-10-09 01:00:11',
                         };

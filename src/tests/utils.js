@@ -9,6 +9,20 @@ const { merge } = require('lodash');
  */
 function runQuery(query, variables = {}, ctx = {}) {
     const schema = makeExecutableSchema({ typeDefs, resolvers });
+    return graphql(schema, query, null, ctx, variables);
+}
+
+/**
+ * Helper function that takes a custom context object or function
+ * and merges it with the actual context from the API.
+ *
+ * Used to override context variables with mock values.
+ *
+ * Also provides mock express req and res objects.
+ *
+ * @param {Object|Function} ctx
+ */
+function buildContext(ctx) {
     const mockReq = {
         request: {
             session: {},
@@ -16,7 +30,7 @@ function runQuery(query, variables = {}, ctx = {}) {
         response: {},
     };
     const computedCtx = typeof ctx === 'function' ? ctx() : ctx;
-    return graphql(schema, query, null, merge({}, context(mockReq), computedCtx), variables);
+    return merge({}, context(mockReq), computedCtx);
 }
 
 /**
@@ -24,19 +38,27 @@ function runQuery(query, variables = {}, ctx = {}) {
  * By default, if no expected result is provided, it simply does a snapshot test.
  */
 function testQuery(testCase) {
-    const { id, query, variables, context, expected } = testCase;
+    const { id, query, variables, context, expected, additionalAssertions } = testCase;
 
     test(`query: ${id}`, async () => {
-        const result = await runQuery(query, variables, context);
+        const fullContext = buildContext(context);
+        const result = await runQuery(query, variables, fullContext);
 
         /**
          * If we provide an expected result, check against it.
          * Otherwise, just use snapshot testing.
          */
         if (expected !== undefined) {
-            return expect(result).toEqual(expected);
+            expect(result).toEqual(expected);
         } else {
-            return expect(result).toMatchSnapshot();
+            expect(result).toMatchSnapshot();
+        }
+
+        /**
+         * Run callback for additional assertions.
+         */
+        if (additionalAssertions) {
+            additionalAssertions(result, fullContext);
         }
     });
 }
