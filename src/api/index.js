@@ -33,6 +33,8 @@ module.exports = {
     typeDefs: mergeTypeDefs([user.typeDefs, ladder.typeDefs, match.typeDefs]),
     resolvers: mergeResolvers([baseResolvers, user.resolvers, ladder.resolvers, match.resolvers]),
     context: req => {
+        const { request, response } = req;
+
         const loaders = createLoaders();
 
         const userRepo = createUserRepo(loaders);
@@ -40,9 +42,14 @@ module.exports = {
         const ladderRepo = createLadderRepo(loaders);
         const ladderUserRepo = createLadderUserRepo(loaders);
 
+        const currentUser = request.session.userId
+            ? userRepo.getUserById(request.session.userId)
+            : null;
+
         return {
-            req: req.request, // express req
-            res: req.response, // express res
+            req: request, // express req
+            res: response, // express res
+            currentUser,
             repos: {
                 user: userRepo,
                 match: matchRepo,

@@ -1,9 +1,16 @@
+const authenticated = require('@guards/authenticated');
+const userAuthorized = require('@guards/userAuthorized');
+
 const users = (_, __, ctx) => {
     return ctx.repos.user.getAllUsers();
 };
 
 const user = (_, args, ctx) => {
     return ctx.repos.user.getUserById(args.id);
+};
+
+const me = (_, __, ctx) => {
+    return ctx.currentUser;
 };
 
 const signup = async (_, args, ctx) => {
@@ -34,6 +41,7 @@ module.exports = {
     Query: {
         users,
         user,
+        me: authenticated(me),
     },
     Mutation: {
         signup,
@@ -49,6 +57,9 @@ module.exports = {
         avatarUrl(user) {
             return user.avatar_url;
         },
+        email: userAuthorized(user => {
+            return user.email;
+        }),
         createdAt(user) {
             return user.created_at;
         },

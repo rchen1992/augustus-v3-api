@@ -8,7 +8,6 @@ testQuery({
             users {
                 id
                 userName
-                email
                 avatarUrl
                 createdAt
                 updatedAt

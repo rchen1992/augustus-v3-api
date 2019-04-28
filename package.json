@@ -38,6 +38,7 @@
     "_moduleAliases": {
         "@api": "src/api",
         "@database": "database",
+        "@guards": "src/guards",
         "@helpers": "src/helpers",
         "@loaders": "src/loaders",
         "@models": "src/models",
