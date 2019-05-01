@@ -14,7 +14,7 @@ const serverOptions = {
     debug: true,
     cors: {
         credentials: true,
-        origin: ['http://localhost:8080'], // your frontend url.
+        origin: ['http://localhost:3000'], // your frontend url.
     },
 };
 
