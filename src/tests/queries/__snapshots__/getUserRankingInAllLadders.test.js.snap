@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get a user's rank in all of their ladders 1`] = `
+Object {
+  "data": Object {
+    "user": Object {
+      "id": "1",
+      "ladders": Array [
+        Object {
+          "id": "1",
+          "ladderName": "Tagpad",
+          "userRank": 3,
+        },
+        Object {
+          "id": "2",
+          "ladderName": "Kamba",
+          "userRank": 3,
+        },
+        Object {
+          "id": "3",
+          "ladderName": "Skyvu",
+          "userRank": 3,
+        },
+        Object {
+          "id": "4",
+          "ladderName": "Thoughtworks",
+          "userRank": 3,
+        },
+        Object {
+          "id": "5",
+          "ladderName": "Yakijo",
+          "userRank": 3,
+        },
+      ],
+    },
+  },
+}
+`;

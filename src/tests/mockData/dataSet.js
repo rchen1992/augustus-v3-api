@@ -256,7 +256,7 @@ const mockLadderUsers = [
     {
         ladder_id: 2,
         user_id: 4,
-        rating: 200,
+        rating: 220,
         rating_delta: 20,
         created_at: '2018-09-27 20:12:13',
         updated_at: '2018-05-28 10:49:38',

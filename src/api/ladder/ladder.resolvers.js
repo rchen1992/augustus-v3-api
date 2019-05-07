@@ -42,6 +42,11 @@ module.exports = {
         userRatingDelta(ladder) {
             return ladder.ladder_user ? ladder.ladder_user.rating_delta : null;
         },
+        userRank(ladder, _, ctx) {
+            return ladder.ladder_user
+                ? ctx.services.ladder.getUserRank(ladder.ladder_id, ladder.ladder_user.user_id)
+                : null;
+        },
         async users(ladder, _, ctx) {
             const ladderModel = await ctx.repos.ladder.getLadderWithUsers(ladder.ladder_id);
             return ladderModel.users;

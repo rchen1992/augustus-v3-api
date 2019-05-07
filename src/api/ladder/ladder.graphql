@@ -6,6 +6,7 @@ type Ladder implements Node {
     updatedAt: String
     userRating: Int
     userRatingDelta: Int
+    userRank: Int
     users: [User!]!
     matches: [Match!]!
 }
