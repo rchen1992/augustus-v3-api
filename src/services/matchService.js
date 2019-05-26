@@ -36,6 +36,16 @@ function createMatchService(matchRepo, ladderUserRepo) {
 
             return match;
         },
+
+        async getLadderUserMatchStats(userId, ladderId) {
+            const matches = await matchRepo.getMatchesByLadderUser(userId, ladderId);
+            return {
+                matchCount: matches.length,
+                winCount: matches.filter(match => match.winner_id === userId).length,
+                lossCount: matches.filter(match => match.loser_id === userId).length,
+                tieCount: matches.filter(match => match.tied === true).length,
+            };
+        },
     };
 }
 

@@ -15,6 +15,10 @@ module.exports = {
         return mockMatches.filter(match => match.user_1_id == userId || match.user_2_id == userId);
     },
 
+    getMatchesByLadderUser(userId, ladderId) {
+        return this.getMatchesByUser(userId).filter(match => match.ladder_id == ladderId);
+    },
+
     getMatchWithLadder(matchId) {
         const match = this.getMatchById(matchId);
         const ladder = mockLadderRepo.getLadderById(match.ladder_id);

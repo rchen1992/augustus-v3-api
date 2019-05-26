@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get a user's match stats in all of their ladders 1`] = `
+Object {
+  "data": Object {
+    "user": Object {
+      "id": "1",
+      "ladders": Array [
+        Object {
+          "id": "1",
+          "ladderName": "Tagpad",
+          "userMatchStats": Object {
+            "lossCount": 2,
+            "matchCount": 7,
+            "tieCount": 1,
+            "winCount": 4,
+          },
+        },
+        Object {
+          "id": "2",
+          "ladderName": "Kamba",
+          "userMatchStats": Object {
+            "lossCount": 2,
+            "matchCount": 7,
+            "tieCount": 1,
+            "winCount": 4,
+          },
+        },
+        Object {
+          "id": "3",
+          "ladderName": "Skyvu",
+          "userMatchStats": Object {
+            "lossCount": 2,
+            "matchCount": 7,
+            "tieCount": 1,
+            "winCount": 4,
+          },
+        },
+        Object {
+          "id": "4",
+          "ladderName": "Thoughtworks",
+          "userMatchStats": Object {
+            "lossCount": 2,
+            "matchCount": 7,
+            "tieCount": 1,
+            "winCount": 4,
+          },
+        },
+        Object {
+          "id": "5",
+          "ladderName": "Yakijo",
+          "userMatchStats": Object {
+            "lossCount": 2,
+            "matchCount": 7,
+            "tieCount": 1,
+            "winCount": 4,
+          },
+        },
+      ],
+    },
+  },
+}
+`;

@@ -40,6 +40,22 @@ function createMatchRepo(loaders) {
             );
         },
 
+        /**
+         * Returns matches played by a user in a particular ladder.
+         */
+        getMatchesByLadderUser(userId, ladderId) {
+            return connection.query(
+                `
+                    select * from matches m
+                    where m.user_1_id = :userId or m.user_2_id = :userId and ladder_id = :ladderId
+                `,
+                {
+                    replacements: { userId, ladderId },
+                    type: connection.QueryTypes.SELECT,
+                }
+            );
+        },
+
         async getMatchWithLadder(matchId) {
             const match = await loaders.match.load(matchId);
             if (!match) {

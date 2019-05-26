@@ -7,8 +7,16 @@ type Ladder implements Node {
     userRating: Int
     userRatingDelta: Int
     userRank: Int
+    userMatchStats: UserMatchStats
     users: [User!]!
     matches: [Match!]!
+}
+
+type UserMatchStats {
+    matchCount: Int
+    winCount: Int
+    lossCount: Int
+    tieCount: Int
 }
 
 extend type Query {

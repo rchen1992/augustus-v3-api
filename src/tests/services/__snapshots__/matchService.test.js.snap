@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Match Service should be able to get user match stats 1`] = `
+Object {
+  "lossCount": 0,
+  "matchCount": 1,
+  "tieCount": 0,
+  "winCount": 1,
+}
+`;

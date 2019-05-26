@@ -47,6 +47,14 @@ module.exports = {
                 ? ctx.services.ladder.getUserRank(ladder.ladder_id, ladder.ladder_user.user_id)
                 : null;
         },
+        userMatchStats(ladder, _, ctx) {
+            return ladder.ladder_user
+                ? ctx.services.match.getLadderUserMatchStats(
+                      ladder.ladder_user.user_id,
+                      ladder.ladder_id
+                  )
+                : null;
+        },
         async users(ladder, _, ctx) {
             const ladderModel = await ctx.repos.ladder.getLadderWithUsers(ladder.ladder_id);
             return ladderModel.users;
