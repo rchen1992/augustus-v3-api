@@ -32,7 +32,7 @@ function mergeResolvers(resolvers) {
 module.exports = {
     typeDefs: mergeTypeDefs([user.typeDefs, ladder.typeDefs, match.typeDefs]),
     resolvers: mergeResolvers([baseResolvers, user.resolvers, ladder.resolvers, match.resolvers]),
-    context: req => {
+    context: async req => {
         const { request, response } = req;
 
         const loaders = createLoaders();
@@ -43,7 +43,7 @@ module.exports = {
         const ladderUserRepo = createLadderUserRepo(loaders);
 
         const currentUser = request.session.userId
-            ? userRepo.getUserById(request.session.userId)
+            ? await userRepo.getUserById(request.session.userId)
             : null;
 
         return {
