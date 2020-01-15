@@ -4,7 +4,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile-backend-dev
-        container_name: backend
+        container_name: augustus-backend
         links:
             - db
         depends_on:
@@ -17,6 +17,11 @@ services:
             - '9229:9229' # for vscode debugger
         volumes:
             - ./:/usr/src/app
+        environment:
+            # Necessary for nginx-proxy. Must be unique between all apps being proxied to.
+            # nginx-proxy can look into each container and grab its VIRTUAL_HOST in order to dynamically generate the nginx config block for it.
+            VIRTUAL_HOST: augustus.rchen.dev
+            VIRTUAL_PORT: 8080
     db:
         image: postgres:9.6
         container_name: db
@@ -26,3 +31,8 @@ services:
             - '5432:5432'
         volumes:
             - ./data/postgresql:/var/lib/postgresql/data
+
+networks:
+    default:
+        external:
+            name: nginx-proxy
