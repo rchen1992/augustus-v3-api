@@ -1,0 +1,18 @@
+# loosely based on:
+# https://github.com/nodejs/docker-node/blob/master/8/onbuild/Dockerfile
+FROM node:8.9
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# copy app source into working directory
+COPY . ./
+# overwrite dev env with prod env
+COPY .env.prod ./.env
+
+# install deps
+RUN npm install
+
+# EXPOSE & BIND app ports to host from docker-compose.yml
+# "npm run prod" script in package.json
+CMD ["npm", "run", "prod"]
