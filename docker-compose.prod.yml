@@ -14,9 +14,9 @@ services:
         environment:
             # Necessary for nginx-proxy. Must be unique between all apps being proxied to.
             # nginx-proxy can look into each container and grab its VIRTUAL_HOST in order to dynamically generate the nginx config block for it.
-            VIRTUAL_HOST: augustus.io
+            VIRTUAL_HOST: augustus.rchen.dev
             VIRTUAL_PORT: 8080
-            LETSENCRYPT_HOST: augustus.io
+            LETSENCRYPT_HOST: augustus.rchen.dev
             LETSENCRYPT_EMAIL: rchen1992@gmail.com
     db:
         image: postgres:9.6
