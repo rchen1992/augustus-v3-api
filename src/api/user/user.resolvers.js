@@ -16,12 +16,6 @@ const me = (_, __, ctx) => {
 const signup = async (_, args, ctx) => {
     const { userName, password, email } = args.input;
     const user = await ctx.services.auth.signup(userName, password, email);
-
-    // Set userId into session
-    if (user && user.user_id) {
-        ctx.req.session.userId = user.user_id;
-    }
-
     return user;
 };
 
