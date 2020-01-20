@@ -1,6 +1,6 @@
-# Augustus v2 API
+# Augustus v3 API
 
-Full rewrite of legacy augustus API using GraphQL and Sequelize. Current WIP.
+Augustus v3 API using GraphQL and Sequelize. The difference with v2 is that this API uses Auth0 for authentication, so we no longer manage users via our own DB.
 
 ## Local Setup
 
