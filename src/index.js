@@ -9,12 +9,14 @@ const pgPool = require('@database/db');
 const serverOptions = {
     port: 8080,
     endpoint: '/graphql',
+    // TODO: disable playground in prod.
+    // playground: process.env.NODE_ENV === 'development' ? '/docs' : false,
     playground: '/docs',
     tracing: true,
     debug: true,
     cors: {
         credentials: true,
-        origin: ['http://localhost:3000'], // your frontend url.
+        origin: ['https://augustus.netlify.com'], // your frontend url.
     },
 };
 
