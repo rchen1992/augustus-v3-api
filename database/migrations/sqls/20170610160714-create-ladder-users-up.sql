@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS ladder_users (
-	user_id bigint REFERENCES users(user_id),
+	user_id varchar(128) REFERENCES users(user_id),
 	ladder_id bigint REFERENCES ladders(ladder_id),
 	rating integer NOT NULL,
 	rating_delta integer NOT NULL,

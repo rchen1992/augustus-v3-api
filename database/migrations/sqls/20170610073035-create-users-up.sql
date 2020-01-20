@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS users (
-	user_id bigserial PRIMARY KEY,
+	user_id varchar(128) PRIMARY KEY,
 	email citext UNIQUE,
 	user_name citext UNIQUE,
 	avatar_url text UNIQUE,
