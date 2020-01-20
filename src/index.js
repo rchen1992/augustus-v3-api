@@ -3,6 +3,7 @@ require('module-alias/register');
 const { GraphQLServer } = require('graphql-yoga');
 const gqlServerConfig = require('./api');
 const { checkJwt } = require('./middleware/jwtAuth');
+const syncUser = require('./middleware/syncUser');
 
 const serverOptions = {
     port: 8080,
@@ -28,5 +29,6 @@ const server = new GraphQLServer(gqlServerConfig);
  * Add middleware to `/graphql` endpoint.
  */
 server.express.post(serverOptions.endpoint, checkJwt);
+server.express.post(serverOptions.endpoint, syncUser);
 
 server.start(serverOptions, () => console.log(`Server is running on http://localhost:8080`));
