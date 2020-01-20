@@ -14,7 +14,7 @@ module.exports = createModel('match', {
         },
     },
     user_1_id: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING(128),
         allowNull: false,
         references: {
             model: User,
@@ -22,7 +22,7 @@ module.exports = createModel('match', {
         },
     },
     user_2_id: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING(128),
         allowNull: false,
         references: {
             model: User,
@@ -30,14 +30,14 @@ module.exports = createModel('match', {
         },
     },
     winner_id: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING(128),
         references: {
             model: User,
             key: 'user_id',
         },
     },
     loser_id: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING(128),
         references: {
             model: User,
             key: 'user_id',
