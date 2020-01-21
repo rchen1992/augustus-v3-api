@@ -22,12 +22,6 @@ const signup = async (_, args, ctx) => {
 const login = async (_, args, ctx) => {
     const { userName, password } = args.input;
     const user = await ctx.services.auth.login(userName, password);
-
-    // Set userId into session
-    if (user && user.user_id) {
-        ctx.req.session.userId = user.user_id;
-    }
-
     return user;
 };
 
