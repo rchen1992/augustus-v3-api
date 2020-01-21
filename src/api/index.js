@@ -43,10 +43,6 @@ module.exports = {
         const ladderRepo = createLadderRepo(loaders);
         const ladderUserRepo = createLadderUserRepo(loaders);
 
-        // const currentUser = request.session.userId
-        //     ? await userRepo.getUserById(request.session.userId)
-        //     : null;
-
         return {
             req: request, // express req
             res: response, // express res
