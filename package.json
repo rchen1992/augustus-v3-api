@@ -42,6 +42,7 @@
         "@guards": "src/guards",
         "@helpers": "src/helpers",
         "@loaders": "src/loaders",
+        "@middleware": "src/middleware",
         "@models": "src/models",
         "@repos": "src/repos",
         "@services": "src/services",
