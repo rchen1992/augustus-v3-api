@@ -1,6 +1,6 @@
 const createLoaders = require('@loaders');
 const createUserRepo = require('@repos/userRepo');
-const createAuthService = require('@services/authService');
+const createUserService = require('@services/userService');
 
 const syncUser = async (req, res, next) => {
     console.log('req user', req.user);
@@ -16,9 +16,9 @@ const syncUser = async (req, res, next) => {
 
     const loaders = createLoaders();
     const userRepo = createUserRepo(loaders);
-    const authService = createAuthService(userRepo);
+    const userService = createUserService(userRepo);
 
-    const user = await authService.syncUserFromAuth0({
+    const user = await userService.syncUserFromAuth0({
         userId,
         email,
         nickname,

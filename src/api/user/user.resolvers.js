@@ -13,27 +13,11 @@ const me = (_, __, ctx) => {
     return ctx.currentUser;
 };
 
-const signup = async (_, args, ctx) => {
-    const { userName, password, email } = args.input;
-    const user = await ctx.services.auth.signup(userName, password, email);
-    return user;
-};
-
-const login = async (_, args, ctx) => {
-    const { userName, password } = args.input;
-    const user = await ctx.services.auth.login(userName, password);
-    return user;
-};
-
 module.exports = {
     Query: {
         users,
         user,
         me: authenticated(me),
-    },
-    Mutation: {
-        signup,
-        login,
     },
     User: {
         id(user) {
