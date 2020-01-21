@@ -18,12 +18,16 @@ const syncUser = async (req, res, next) => {
     const userRepo = createUserRepo(loaders);
     const authService = createAuthService(userRepo);
 
-    await authService.syncUserFromAuth0({
+    const user = await authService.syncUserFromAuth0({
         userId,
         email,
         nickname,
         avatarUrl,
     });
+
+    if (user) {
+        req.currentUser = user;
+    }
 
     next();
 };

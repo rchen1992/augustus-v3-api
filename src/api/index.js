@@ -34,6 +34,7 @@ module.exports = {
     resolvers: mergeResolvers([baseResolvers, user.resolvers, ladder.resolvers, match.resolvers]),
     context: async req => {
         const { request, response } = req;
+        const { currentUser } = request;
 
         const loaders = createLoaders();
 
@@ -49,7 +50,7 @@ module.exports = {
         return {
             req: request, // express req
             res: response, // express res
-            // currentUser,
+            currentUser,
             repos: {
                 user: userRepo,
                 match: matchRepo,
