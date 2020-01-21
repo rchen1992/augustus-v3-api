@@ -18,7 +18,7 @@ function createUserService(userRepo) {
              * Otherwise, if user already exists, keep fields up to date.
              * We control the `userName` in our DB, so don't overwrite that with Auth0's nickname.
              */
-            return userRepo.updateUser(userId, { email, avatarUrl });
+            return userRepo.updateUser(userId, { email, avatar_url: avatarUrl });
         },
     };
 }

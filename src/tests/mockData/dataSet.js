@@ -6,7 +6,6 @@ const mockUsers = [
         avatar_url: 'https://robohash.org/solutaeaut.bmp?size=50x50&set=set1',
         created_at: '2018-09-25 03:08:51',
         updated_at: '2018-07-12 05:22:33',
-        password: 'f7CFZRjaGSri',
     },
     {
         user_id: '2',
@@ -15,7 +14,6 @@ const mockUsers = [
         avatar_url: 'https://robohash.org/nesciuntnobismagni.png?size=50x50&set=set1',
         created_at: '2018-08-01 19:26:23',
         updated_at: '2018-07-14 22:48:36',
-        password: 'GxWLHMr9qS1',
     },
     {
         user_id: '3',
@@ -24,7 +22,6 @@ const mockUsers = [
         avatar_url: 'https://robohash.org/cupiditatesedfugiat.jpg?size=50x50&set=set1',
         created_at: '2018-09-13 15:51:54',
         updated_at: '2019-04-06 09:37:00',
-        password: 'PcIoSIL',
     },
     {
         user_id: '4',
@@ -33,7 +30,6 @@ const mockUsers = [
         avatar_url: 'https://robohash.org/molestiaeinciduntlaboriosam.bmp?size=50x50&set=set1',
         created_at: '2019-01-01 16:47:52',
         updated_at: '2018-04-20 21:04:19',
-        password: '0bPXIVqHyaX',
     },
     {
         user_id: '5',
@@ -42,7 +38,6 @@ const mockUsers = [
         avatar_url: 'https://robohash.org/voluptatumundemodi.bmp?size=50x50&set=set1',
         created_at: '2018-08-16 17:09:23',
         updated_at: '2018-08-18 01:01:35',
-        password: 'UJrPLB',
     },
 ];
 
