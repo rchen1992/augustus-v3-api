@@ -4,7 +4,7 @@
  * Used to authorize individual fields on the user object.
  */
 const userAuthorized = next => (user, args, context, info) => {
-    if (!context.currentUser || context.req.currentUser.userId !== user.user_id) {
+    if (!context.currentUser || context.currentUser.user_id !== user.user_id) {
         throw new Error(`User is unauthorized to access '${info.fieldName}' field.`);
     }
 

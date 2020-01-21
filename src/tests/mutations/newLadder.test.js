@@ -1,6 +1,6 @@
 const { testQuery } = require('@tests/utils');
 
-const userId = 1;
+const userId = '1';
 const ladderName = 'My New Ladder';
 
 testQuery({

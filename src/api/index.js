@@ -32,7 +32,7 @@ function mergeResolvers(resolvers) {
 module.exports = {
     typeDefs: mergeTypeDefs([user.typeDefs, ladder.typeDefs, match.typeDefs]),
     resolvers: mergeResolvers([baseResolvers, user.resolvers, ladder.resolvers, match.resolvers]),
-    context: async req => {
+    context: req => {
         const { request, response } = req;
         const { currentUser } = request;
 

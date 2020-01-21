@@ -97,17 +97,6 @@ module.exports = {
     // A map from regular expressions to module names that allow to stub out resources with a single module
     moduleNameMapper: {
         ...moduleAliases,
-        /**
-         * The bcrypt module only works when compiled in Linux env.
-         * However, our tests run locally in a MacOS env. If we try to recompile
-         * bcrypt in a Linux env, all the tests break.
-         *
-         * We also can't run Jest inside the container because
-         * it is extremely slow (for some reason).
-         *
-         * So my solution is to mock the bcrypt module for all tests.
-         */
-        bcrypt: '<rootDir>/src/tests/mockModules/bcrypt',
     },
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

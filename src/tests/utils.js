@@ -1,4 +1,4 @@
-const { typeDefs, resolvers, context } = require('@api');
+const { typeDefs, resolvers, context: baseContext } = require('@api');
 const { makeExecutableSchema } = require('graphql-tools');
 const { graphql } = require('graphql');
 const { merge } = require('lodash');
@@ -24,13 +24,11 @@ function runQuery(query, variables = {}, ctx = {}) {
  */
 function buildContext(ctx) {
     const mockReq = {
-        request: {
-            session: {},
-        },
+        request: {},
         response: {},
     };
     const computedCtx = typeof ctx === 'function' ? ctx() : ctx;
-    return merge({}, context(mockReq), computedCtx);
+    return merge({}, baseContext(mockReq), computedCtx);
 }
 
 /**

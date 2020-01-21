@@ -1,7 +1,7 @@
 const { testQuery } = require('@tests/utils');
 
 const currentUser = {
-    user_id: 10,
+    user_id: '10',
     user_name: 'newboi',
     email: 'newboi@gmail.com',
     created_at: '2018-12-11 09:39:31',
@@ -24,11 +24,6 @@ testQuery({
     context: () => {
         return {
             currentUser,
-            req: {
-                session: {
-                    userId: currentUser.user_id,
-                },
-            },
         };
     },
     expected: undefined,
