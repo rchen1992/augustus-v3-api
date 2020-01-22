@@ -26,4 +26,25 @@ module.exports = {
             ladders,
         };
     },
+
+    generateUniqueUsername(userName) {
+        return userName;
+    },
+
+    createUser({ userId, userName, email, avatarUrl }) {
+        return {
+            user_id: userId,
+            user_name: userName,
+            email,
+            avatar_url: avatarUrl,
+        };
+    },
+
+    updateUser(userId, fields) {
+        const user = this.getUserById(userId);
+        return {
+            ...user,
+            ...fields,
+        };
+    },
 };

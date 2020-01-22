@@ -5,7 +5,7 @@ const Ladder = require('./Ladder');
 
 module.exports = createModel('ladder_user', {
     user_id: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING(128),
         primaryKey: true,
         references: {
             model: User,

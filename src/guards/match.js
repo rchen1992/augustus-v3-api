@@ -1,6 +1,6 @@
 /**
  * New match authorization guard.
- * Checks that the current user in session is one of the users participating in the match.
+ * Checks that the current authenticated user is one of the users participating in the match.
  */
 const validateNewMatch = next => (root, args, context, info) => {
     const { currentUser } = context;
