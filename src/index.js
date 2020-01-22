@@ -15,11 +15,7 @@ const serverOptions = {
     debug: true,
     cors: {
         credentials: true,
-        origin: [
-            process.env.NODE_ENV === 'development'
-                ? 'http://localhost:3000'
-                : 'https://augustus.netlify.com',
-        ], // your frontend url.
+        origin: ['http://localhost:3000', 'https://augustus.netlify.com'], // your frontend urls.
     },
 };
 
