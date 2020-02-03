@@ -11,13 +11,10 @@ const createUserService = require('@services/userService');
  *  to Auth0's REST API and manually joining in memory.
  */
 const syncUser = async (req, res, next) => {
-    console.log('req user', req.user);
-    console.log('req user data', JSON.parse(req.headers.userdata));
-
     /**
      * `req.user` is set by the JWT auth middleware.
      */
-    const userId = req.user.sub;
+    const userId = req.user ? req.user.sub : null;
 
     /**
      * The frontend sends stringified JSON in a header for the user data.
@@ -28,6 +25,9 @@ const syncUser = async (req, res, next) => {
     if (!userId || !userData) {
         return next();
     }
+
+    console.log('req user', req.user);
+    console.log('req user data', userData);
 
     const { email, nickname, avatar_url: avatarUrl } = userData;
 
