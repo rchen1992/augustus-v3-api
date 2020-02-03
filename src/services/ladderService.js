@@ -1,10 +1,20 @@
 function createLadderService(ladderRepo, ladderUserRepo) {
     return {
         async newLadder(ladderName, userId) {
-            const ladder = await ladderRepo.createLadder(ladderName);
-            const ladderUser = await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
-            ladder.ladder_user = ladderUser;
-            return ladder;
+            const trimmedLadderName = ladderName.trim();
+            if (!trimmedLadderName) {
+                throw new Error('Ladder name cannot be empty.');
+            }
+
+            try {
+                const ladder = await ladderRepo.createLadder(trimmedLadderName);
+                const ladderUser = await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
+                ladder.ladder_user = ladderUser;
+                return ladder;
+            } catch (e) {
+                console.log(e);
+                throw new Error('An error occurred while creating a ladder.');
+            }
         },
 
         async getUserRank(ladderId, userId) {
