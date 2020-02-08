@@ -52,4 +52,16 @@ module.exports = {
             [returnedUserKeyName]: user,
         };
     },
+
+    createMatch(ladderId, user1Id, user2Id, winnerId = null, loserId = null, tied = false) {
+        return {
+            match_id: 1,
+            ladder_id: ladderId,
+            user_1_id: user1Id,
+            user_2_id: user2Id,
+            winner_id: winnerId,
+            loser_id: loserId,
+            tied,
+        };
+    },
 };

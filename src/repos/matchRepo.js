@@ -85,9 +85,14 @@ function createMatchRepo(loaders) {
             return _getMatchWithUser(matchId, 'loser_id', 'loser');
         },
 
-        async createMatch(ladderId, user1Id, user2Id, winnerId = null, loserId = null) {
-            let tied = winnerId === null && loserId === null;
-
+        async createMatch(
+            ladderId,
+            user1Id,
+            user2Id,
+            winnerId = null,
+            loserId = null,
+            tied = false
+        ) {
             const match = await Match.create({
                 ladder_id: ladderId,
                 user_1_id: user1Id,

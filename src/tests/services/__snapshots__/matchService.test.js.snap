@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Match Service should be able to get create match 1`] = `
+Object {
+  "ladder_id": 1,
+  "loser_id": "2",
+  "match_id": 1,
+  "tied": false,
+  "user_1_id": "1",
+  "user_2_id": "2",
+  "winner_id": "1",
+}
+`;
+
+exports[`Match Service should be able to get create match with a tie 1`] = `
+Object {
+  "ladder_id": 1,
+  "loser_id": null,
+  "match_id": 1,
+  "tied": true,
+  "user_1_id": "1",
+  "user_2_id": "2",
+  "winner_id": null,
+}
+`;
+
 exports[`Match Service should be able to get user match stats 1`] = `
 Object {
   "lossCount": 0,
@@ -8,3 +32,15 @@ Object {
   "winCount": 1,
 }
 `;
+
+exports[`Match Service should not be able to create match against yourself 1`] = `[Error: Cannot log match against yourself.]`;
+
+exports[`Match Service should not be able to create match if users don't match the winner or loser 1`] = `[Error: Provided users must match either the winner or loser]`;
+
+exports[`Match Service should not be able to create match if winner and loser are the same user 1`] = `[Error: Winner and loser cannot be the same user.]`;
+
+exports[`Match Service should not be able to create match if winner and loser are the same user 2`] = `[Error: Winner and loser cannot be the same user.]`;
+
+exports[`Match Service should not be able to create match with only a loser and no winner 1`] = `[Error: Only one of winner or loser were specified.]`;
+
+exports[`Match Service should not be able to create match with only a winner and no loser 1`] = `[Error: Only one of winner or loser were specified.]`;

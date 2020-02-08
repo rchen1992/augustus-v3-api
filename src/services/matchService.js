@@ -3,11 +3,34 @@ const elo = require('@helpers/elo');
 function createMatchService(matchRepo, ladderUserRepo) {
     return {
         async newMatch(ladderId, user1Id, user2Id, winnerId, loserId) {
+            const isTie = !winnerId && !loserId;
+
+            if (user1Id === user2Id) {
+                throw new Error('Cannot log match against yourself.');
+            }
+
+            if (!isTie) {
+                if ((winnerId && !loserId) || (loserId && !winnerId)) {
+                    throw new Error('Only one of winner or loser were specified.');
+                }
+
+                if (winnerId === loserId) {
+                    throw new Error('Winner and loser cannot be the same user.');
+                }
+
+                if (
+                    (user1Id !== winnerId && user1Id !== loserId) ||
+                    (user2Id !== winnerId && user2Id !== loserId)
+                ) {
+                    throw new Error('Provided users must match either the winner or loser');
+                }
+            }
+
             let ladderUser1 = await ladderUserRepo.getLadderUser(ladderId, user1Id);
             let ladderUser2 = await ladderUserRepo.getLadderUser(ladderId, user2Id);
 
             if (!ladderUser1 || !ladderUser2) {
-                return null;
+                throw new Error('Ladder user does not exist.');
             }
 
             const match = await matchRepo.createMatch(
@@ -15,7 +38,8 @@ function createMatchService(matchRepo, ladderUserRepo) {
                 user1Id,
                 user2Id,
                 winnerId,
-                loserId
+                loserId,
+                isTie
             );
 
             const [user1Ratings, user2Ratings] = elo.getNewUserRatings(
