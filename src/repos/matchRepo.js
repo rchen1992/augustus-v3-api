@@ -8,7 +8,9 @@ function createMatchRepo(loaders) {
             return null;
         }
 
-        const user = await loaders.user.load(match[userIdKey]);
+        const userId = match[userIdKey];
+        const user = userId ? await loaders.user.load(match[userIdKey]) : null;
+
         return {
             ...match.toJSON(),
             [returnedUserKeyName]: user && user.toJSON(),

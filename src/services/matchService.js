@@ -33,32 +33,37 @@ function createMatchService(matchRepo, ladderUserRepo) {
                 throw new Error('Ladder user does not exist.');
             }
 
-            const match = await matchRepo.createMatch(
-                ladderId,
-                user1Id,
-                user2Id,
-                winnerId,
-                loserId,
-                isTie
-            );
+            try {
+                const match = await matchRepo.createMatch(
+                    ladderId,
+                    user1Id,
+                    user2Id,
+                    winnerId,
+                    loserId,
+                    isTie
+                );
 
-            const [user1Ratings, user2Ratings] = elo.getNewUserRatings(
-                ladderUser1,
-                ladderUser2,
-                winnerId
-            );
+                const [user1Ratings, user2Ratings] = elo.getNewUserRatings(
+                    ladderUser1,
+                    ladderUser2,
+                    winnerId
+                );
 
-            await ladderUserRepo.updateLadderUser(ladderId, user1Id, {
-                rating: user1Ratings.rating,
-                rating_delta: user1Ratings.ratingDelta,
-            });
+                await ladderUserRepo.updateLadderUser(ladderId, user1Id, {
+                    rating: user1Ratings.rating,
+                    rating_delta: user1Ratings.ratingDelta,
+                });
 
-            await ladderUserRepo.updateLadderUser(ladderId, user2Id, {
-                rating: user2Ratings.rating,
-                rating_delta: user2Ratings.ratingDelta,
-            });
+                await ladderUserRepo.updateLadderUser(ladderId, user2Id, {
+                    rating: user2Ratings.rating,
+                    rating_delta: user2Ratings.ratingDelta,
+                });
 
-            return match;
+                return match;
+            } catch (err) {
+                console.log(err);
+                throw new Error('Something went wrong while trying to log a match.');
+            }
         },
 
         async getLadderUserMatchStats(userId, ladderId) {

@@ -6,8 +6,8 @@ type Match implements Node {
     user1: User!
     user2: User!
     ladder: Ladder!
-    winner: User!
-    loser: User!
+    winner: User
+    loser: User
 }
 
 input NewMatchInput {
