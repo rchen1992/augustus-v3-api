@@ -48,8 +48,8 @@ function createMatchRepo(loaders) {
         getMatchesByLadderUser(userId, ladderId) {
             return connection.query(
                 `
-                    select * from matches m
-                    where m.user_1_id = :userId or m.user_2_id = :userId and ladder_id = :ladderId
+                    select * from matches
+                    where (user_1_id = :userId or user_2_id = :userId) and ladder_id = :ladderId
                 `,
                 {
                     replacements: { userId, ladderId },
