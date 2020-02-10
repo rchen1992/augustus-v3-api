@@ -3,12 +3,12 @@ const mockUserRepo = require('@tests/mockRepos/user');
 const { testQuery } = require('@tests/utils');
 
 testQuery({
-    id: "Get all of a user's matches",
+    id: "Get all of a user's matches paginated with offset and limit",
     query: `
         {
-            user(id: 1) {
+            user(id: 2) {
                 id
-                matches {
+                matches(offset: 1, limit: 2) {
                     id
                     createdAt
                 }

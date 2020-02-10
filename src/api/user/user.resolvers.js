@@ -42,8 +42,8 @@ module.exports = {
             const userModel = await ctx.repos.user.getUserWithLadders(user.user_id);
             return userModel.ladders;
         },
-        matches(user, _, ctx) {
-            return ctx.repos.match.getMatchesByUser(user.user_id);
+        matches(user, args, ctx) {
+            return ctx.repos.match.getMatchesByUser(user.user_id, args.offset, args.limit);
         },
         rating(user) {
             return user.ladder_user ? user.ladder_user.rating : null;

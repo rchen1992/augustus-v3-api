@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Get all of a user's matches paginated with offset and limit 1`] = `
+Object {
+  "data": Object {
+    "user": Object {
+      "id": "2",
+      "matches": Array [
+        Object {
+          "createdAt": "2018-09-17 01:38:13",
+          "id": "4",
+        },
+        Object {
+          "createdAt": "2018-08-22 00:10:00",
+          "id": "2",
+        },
+      ],
+    },
+  },
+}
+`;

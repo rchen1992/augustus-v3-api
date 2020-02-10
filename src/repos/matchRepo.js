@@ -32,15 +32,17 @@ function createMatchRepo(loaders) {
             return match && match.toJSON();
         },
 
-        getMatchesByUser(userId) {
+        getMatchesByUser(userId, offset, limit) {
             return connection.query(
                 `
                     select * from matches m
                     where m.user_1_id = :userId or m.user_2_id = :userId
                     order by m.created_at desc
+                    ${offset === undefined ? '' : 'offset :offset'}
+                    ${limit === undefined ? '' : 'limit :limit'}
                 `,
                 {
-                    replacements: { userId },
+                    replacements: { userId, offset, limit },
                     type: connection.QueryTypes.SELECT,
                 }
             );

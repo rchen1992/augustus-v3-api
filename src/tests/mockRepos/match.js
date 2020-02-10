@@ -2,21 +2,28 @@ const { mockMatches } = require('@tests/mockData/dataSet');
 const mockLadderRepo = require('./ladder');
 const mockUserRepo = require('./user');
 
+function _getMatchesPaginated(matches, offset, limit) {
+    const start = offset || 0;
+    const end = limit ? start + limit : matches.length;
+    return [...matches]
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        .slice(start, end);
+}
+
 module.exports = {
     getMatches(offset, limit) {
-        const start = offset || 0;
-        const end = limit ? start + limit : mockMatches.length;
-        return [...mockMatches]
-            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-            .slice(start, end);
+        return _getMatchesPaginated(mockMatches, offset, limit);
     },
 
     getMatchById(matchId) {
         return mockMatches.find(match => matchId == match.match_id);
     },
 
-    getMatchesByUser(userId) {
-        return mockMatches.filter(match => match.user_1_id == userId || match.user_2_id == userId);
+    getMatchesByUser(userId, offset, limit) {
+        const matches = mockMatches.filter(
+            match => match.user_1_id == userId || match.user_2_id == userId
+        );
+        return _getMatchesPaginated(matches, offset, limit);
     },
 
     getMatchesByLadderUser(userId, ladderId) {

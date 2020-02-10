@@ -4,7 +4,7 @@ type User implements Node {
     userName: String!
     avatarUrl: String
     ladders: [Ladder!]!
-    matches: [Match!]!
+    matches(offset: Int, limit: Int): [Match!]!
     createdAt: String
     updatedAt: String
     rating: Int
