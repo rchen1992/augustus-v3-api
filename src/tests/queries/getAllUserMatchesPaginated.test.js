@@ -12,6 +12,7 @@ testQuery({
                     id
                     createdAt
                 }
+                matchCount
             }
         }
     `,

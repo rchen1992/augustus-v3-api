@@ -45,6 +45,9 @@ module.exports = {
         matches(user, args, ctx) {
             return ctx.repos.match.getMatchesByUser(user.user_id, args.offset, args.limit);
         },
+        matchCount(user, _, ctx) {
+            return ctx.repos.match.countMatchesByUser(user.user_id);
+        },
         rating(user) {
             return user.ladder_user ? user.ladder_user.rating : null;
         },

@@ -5,6 +5,7 @@ Object {
   "data": Object {
     "user": Object {
       "id": "2",
+      "matchCount": 3,
       "matches": Array [
         Object {
           "createdAt": "2018-09-17 01:38:13",

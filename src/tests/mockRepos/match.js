@@ -26,6 +26,10 @@ module.exports = {
         return _getMatchesPaginated(matches, offset, limit);
     },
 
+    countMatchesByUser(userId) {
+        return this.getMatchesByUser(userId).length;
+    },
+
     getMatchesByLadderUser(userId, ladderId) {
         return this.getMatchesByUser(userId).filter(match => match.ladder_id == ladderId);
     },

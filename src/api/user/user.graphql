@@ -5,6 +5,7 @@ type User implements Node {
     avatarUrl: String
     ladders: [Ladder!]!
     matches(offset: Int, limit: Int): [Match!]!
+    matchCount: Int
     createdAt: String
     updatedAt: String
     rating: Int
