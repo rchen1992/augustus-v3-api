@@ -18,8 +18,12 @@ function createMatchRepo(loaders) {
     }
 
     return {
-        async getAllMatches() {
-            const matches = await Match.findAll();
+        async getMatches(offset, limit) {
+            const matches = await Match.findAll({
+                limit,
+                offset,
+                order: [['created_at', 'DESC']],
+            });
             return matches.map(match => match.toJSON());
         },
 

@@ -1,7 +1,7 @@
 const { validateNewMatch } = require('@guards/match');
 
-const matches = (_, __, ctx) => {
-    return ctx.repos.match.getAllMatches();
+const matches = (_, args, ctx) => {
+    return ctx.repos.match.getMatches(args.offset, args.limit);
 };
 
 const match = (_, args, ctx) => {

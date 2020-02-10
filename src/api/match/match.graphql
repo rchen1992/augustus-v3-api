@@ -19,7 +19,7 @@ input NewMatchInput {
 }
 
 extend type Query {
-    matches: [Match!]!
+    matches(offset: Int, limit: Int): [Match!]!
     match(id: ID!): Match
 }
 

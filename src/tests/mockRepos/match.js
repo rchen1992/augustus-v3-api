@@ -3,8 +3,12 @@ const mockLadderRepo = require('./ladder');
 const mockUserRepo = require('./user');
 
 module.exports = {
-    getAllMatches() {
-        return mockMatches;
+    getMatches(offset, limit) {
+        const start = offset || 0;
+        const end = limit ? start + limit : mockMatches.length;
+        return [...mockMatches]
+            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+            .slice(start, end);
     },
 
     getMatchById(matchId) {
