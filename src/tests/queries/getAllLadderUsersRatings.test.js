@@ -1,4 +1,6 @@
 const mockLadderRepo = require('@tests/mockRepos/ladder');
+const mockLadderUserRepo = require('@tests/mockRepos/ladderUser');
+const createLadderService = require('@services/ladderService');
 const { testQuery } = require('@tests/utils');
 
 testQuery({
@@ -12,6 +14,8 @@ testQuery({
                     userName
                     rating
                     ratingDelta
+                    rank
+                    ladderJoinDate
                 }
             }
         }
@@ -19,6 +23,9 @@ testQuery({
     variables: {},
     context: () => {
         return {
+            services: {
+                ladder: createLadderService(mockLadderRepo, mockLadderUserRepo),
+            },
             repos: {
                 ladder: mockLadderRepo,
             },

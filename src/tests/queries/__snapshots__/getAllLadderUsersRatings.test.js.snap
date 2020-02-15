@@ -8,24 +8,32 @@ Object {
       "users": Array [
         Object {
           "id": "1",
+          "ladderJoinDate": "2018-12-11 09:39:31",
+          "rank": 1,
           "rating": 160,
           "ratingDelta": 30,
           "userName": "cblanko0",
         },
         Object {
           "id": "2",
+          "ladderJoinDate": "2018-09-27 20:12:13",
+          "rank": 4,
           "rating": 70,
           "ratingDelta": 30,
           "userName": "csaye1",
         },
         Object {
           "id": "3",
+          "ladderJoinDate": "2018-09-27 20:12:13",
+          "rank": 3,
           "rating": 110,
           "ratingDelta": -20,
           "userName": "cburchell2",
         },
         Object {
           "id": "5",
+          "ladderJoinDate": "2018-09-27 20:12:13",
+          "rank": 2,
           "rating": 140,
           "ratingDelta": 40,
           "userName": "selcott4",

@@ -54,5 +54,13 @@ module.exports = {
         ratingDelta(user) {
             return user.ladder_user ? user.ladder_user.rating_delta : null;
         },
+        rank(user, _, ctx) {
+            return user.ladder_user
+                ? ctx.services.ladder.getUserRank(user.ladder_user.ladder_id, user.user_id)
+                : null;
+        },
+        ladderJoinDate(user) {
+            return user.ladder_user ? user.ladder_user.created_at : null;
+        },
     },
 };
