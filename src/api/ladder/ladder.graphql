@@ -8,7 +8,7 @@ type Ladder implements Node {
     userRatingDelta: Int
     userRank: Int
     userMatchStats: UserMatchStats
-    users: [User!]!
+    users(orderBy: LadderUsersOrderBy): [User!]!
     matches: [Match!]!
 }
 
@@ -17,6 +17,10 @@ type UserMatchStats {
     winCount: Int
     lossCount: Int
     tieCount: Int
+}
+
+enum LadderUsersOrderBy {
+    rank_DESC
 }
 
 extend type Query {

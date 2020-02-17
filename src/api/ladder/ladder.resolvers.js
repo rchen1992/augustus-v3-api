@@ -55,9 +55,8 @@ module.exports = {
                   )
                 : null;
         },
-        async users(ladder, _, ctx) {
-            const ladderModel = await ctx.repos.ladder.getLadderWithUsers(ladder.ladder_id);
-            return ladderModel.users;
+        async users(ladder, args, ctx) {
+            return ctx.services.ladder.getLadderWithUsers(ladder.ladder_id, args.orderBy);
         },
         async matches(ladder, _, ctx) {
             const ladderModel = await ctx.repos.ladder.getLadderWithMatches(ladder.ladder_id);

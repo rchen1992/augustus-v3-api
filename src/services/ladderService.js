@@ -1,5 +1,24 @@
+const LadderUsersOrderBy = require('@enums/LadderUsersOrderBy');
+
 function createLadderService(ladderRepo, ladderUserRepo) {
+    const cache = {
+        usersRankedDesc: {},
+    };
+
+    async function getUsersRankedDesc(ladderId) {
+        if (!cache.usersRankedDesc[ladderId]) {
+            const ladderWithUsers = await ladderRepo.getLadderWithUsers(ladderId);
+            cache.usersRankedDesc[ladderId] = ladderWithUsers.users.sort(
+                (user1, user2) => user2.ladder_user.rating - user1.ladder_user.rating
+            );
+        }
+
+        return cache.usersRankedDesc[ladderId];
+    }
+
     return {
+        getUsersRankedDesc,
+
         async newLadder(ladderName, userId) {
             const trimmedLadderName = ladderName.trim();
             if (!trimmedLadderName) {
@@ -18,12 +37,18 @@ function createLadderService(ladderRepo, ladderUserRepo) {
         },
 
         async getUserRank(ladderId, userId) {
-            const ladderWithUsers = await ladderRepo.getLadderWithUsers(ladderId);
-            const sortedByRatingDesc = ladderWithUsers.users.sort(
-                (user1, user2) => user2.ladder_user.rating - user1.ladder_user.rating
-            );
-            const rankIndex = sortedByRatingDesc.findIndex(user => user.user_id === userId);
+            const usersRankedDesc = await getUsersRankedDesc(ladderId);
+            const rankIndex = usersRankedDesc.findIndex(user => user.user_id === userId);
             return rankIndex + 1;
+        },
+
+        async getLadderWithUsers(ladderId, orderBy) {
+            if (orderBy === LadderUsersOrderBy.rank_DESC) {
+                return getUsersRankedDesc(ladderId);
+            }
+
+            const ladder = await ladderRepo.getLadderWithUsers(ladderId);
+            return ladder.users;
         },
     };
 }
