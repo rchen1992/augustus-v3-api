@@ -61,7 +61,31 @@ function testQuery(testCase) {
     });
 }
 
+/**
+ * Apply offset and limit to an array of items.
+ */
+function applyPagination(items, offset, limit) {
+    const start = offset || 0;
+    const end = limit ? start + limit : items.length;
+    return [...items].slice(start, end);
+}
+
+/**
+ * Sort items by date.
+ */
+function sortByDate(items, dateKey = 'created_at', desc = true) {
+    return [...items].sort((a, b) => {
+        if (desc) {
+            return new Date(b[dateKey]) - new Date(a[dateKey]);
+        }
+
+        return new Date(a[dateKey]) - new Date(b[dateKey]);
+    });
+}
+
 module.exports = {
     runQuery,
     testQuery,
+    applyPagination,
+    sortByDate,
 };

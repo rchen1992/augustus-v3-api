@@ -5,15 +5,15 @@ Object {
   "data": Object {
     "user": Object {
       "id": "2",
-      "matchCount": 3,
+      "matchCount": 4,
       "matches": Array [
+        Object {
+          "createdAt": "2018-11-03 05:46:42",
+          "id": "7",
+        },
         Object {
           "createdAt": "2018-09-17 01:38:13",
           "id": "4",
-        },
-        Object {
-          "createdAt": "2018-08-22 00:10:00",
-          "id": "2",
         },
       ],
     },

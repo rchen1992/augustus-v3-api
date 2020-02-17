@@ -30,13 +30,18 @@ function createLadderRepo(loaders) {
             };
         },
 
-        async getLadderWithMatches(ladderId) {
+        async getLadderWithMatches(ladderId, offset, limit) {
             const ladder = await loaders.ladder.load(ladderId);
             if (!ladder) {
                 return null;
             }
 
-            const matches = await ladder.getMatches();
+            const matches = await ladder.getMatches({
+                offset,
+                limit,
+                order: [['created_at', 'DESC']],
+            });
+
             return {
                 ...ladder.toJSON(),
                 matches: matches.map(match => match.toJSON()),

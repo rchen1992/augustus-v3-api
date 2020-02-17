@@ -135,6 +135,28 @@ const mockMatches = [
         created_at: '2019-04-06 07:39:01',
         updated_at: '2018-05-12 03:46:10',
     },
+    {
+        match_id: 6,
+        ladder_id: 1,
+        user_1_id: '1',
+        user_2_id: '3',
+        winner_id: '1',
+        loser_id: '3',
+        tied: false,
+        created_at: '2018-12-06 05:46:42',
+        updated_at: '2018-05-11 06:33:00',
+    },
+    {
+        match_id: 7,
+        ladder_id: 1,
+        user_1_id: '2',
+        user_2_id: '3',
+        winner_id: '3',
+        loser_id: '2',
+        tied: false,
+        created_at: '2018-11-03 05:46:42',
+        updated_at: '2018-05-11 06:33:00',
+    },
 ];
 
 /**

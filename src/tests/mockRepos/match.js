@@ -1,13 +1,10 @@
 const { mockMatches } = require('@tests/mockData/dataSet');
 const mockLadderRepo = require('./ladder');
 const mockUserRepo = require('./user');
+const { applyPagination, sortByDate } = require('@tests/utils');
 
 function _getMatchesPaginated(matches, offset, limit) {
-    const start = offset || 0;
-    const end = limit ? start + limit : matches.length;
-    return [...matches]
-        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-        .slice(start, end);
+    return applyPagination(sortByDate(matches), offset, limit);
 }
 
 module.exports = {

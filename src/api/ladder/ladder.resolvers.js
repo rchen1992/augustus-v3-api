@@ -58,8 +58,12 @@ module.exports = {
         async users(ladder, args, ctx) {
             return ctx.services.ladder.getLadderWithUsers(ladder.ladder_id, args.orderBy);
         },
-        async matches(ladder, _, ctx) {
-            const ladderModel = await ctx.repos.ladder.getLadderWithMatches(ladder.ladder_id);
+        async matches(ladder, args, ctx) {
+            const ladderModel = await ctx.repos.ladder.getLadderWithMatches(
+                ladder.ladder_id,
+                args.offset,
+                args.limit
+            );
             return ladderModel.matches;
         },
     },

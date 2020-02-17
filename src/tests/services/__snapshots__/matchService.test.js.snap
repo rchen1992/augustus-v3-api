@@ -27,9 +27,9 @@ Object {
 exports[`Match Service should be able to get user match stats 1`] = `
 Object {
   "lossCount": 0,
-  "matchCount": 1,
+  "matchCount": 2,
   "tieCount": 0,
-  "winCount": 1,
+  "winCount": 2,
 }
 `;
 

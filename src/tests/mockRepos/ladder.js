@@ -1,5 +1,6 @@
 const { mockLadders, mockMatches, mockLadderUsers } = require('@tests/mockData/dataSet');
 const mockUserRepo = require('./user');
+const { applyPagination, sortByDate } = require('@tests/utils');
 
 module.exports = {
     getAllLadders() {
@@ -27,12 +28,15 @@ module.exports = {
         };
     },
 
-    getLadderWithMatches(ladderId) {
+    getLadderWithMatches(ladderId, offset, limit) {
         const ladder = this.getLadderById(ladderId);
         const matches = mockMatches.filter(match => match.ladder_id == ladderId);
+        const sorted = sortByDate(matches);
+        const paginated = applyPagination(sorted, offset, limit);
+
         return {
             ...ladder,
-            matches,
+            matches: paginated,
         };
     },
 };
