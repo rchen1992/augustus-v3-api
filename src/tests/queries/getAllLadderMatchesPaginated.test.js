@@ -1,4 +1,5 @@
 const mockLadderRepo = require('@tests/mockRepos/ladder');
+const mockMatchRepo = require('@tests/mockRepos/match');
 const { testQuery } = require('@tests/utils');
 
 testQuery({
@@ -11,6 +12,7 @@ testQuery({
                     id
                     createdAt
                 }
+                matchCount
             }
         }
     `,
@@ -19,6 +21,7 @@ testQuery({
         return {
             repos: {
                 ladder: mockLadderRepo,
+                match: mockMatchRepo,
             },
         };
     },

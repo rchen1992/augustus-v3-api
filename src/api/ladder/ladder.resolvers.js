@@ -66,5 +66,8 @@ module.exports = {
             );
             return ladderModel.matches;
         },
+        matchCount(ladder, _, ctx) {
+            return ctx.repos.match.countMatchesByLadder(ladder.ladder_id);
+        },
     },
 };

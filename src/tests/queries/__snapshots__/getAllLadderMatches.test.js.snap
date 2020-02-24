@@ -5,6 +5,7 @@ Object {
   "data": Object {
     "ladder": Object {
       "id": "1",
+      "matchCount": 3,
       "matches": Array [
         Object {
           "createdAt": "2018-12-07 05:46:42",

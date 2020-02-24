@@ -10,6 +10,7 @@ type Ladder implements Node {
     userMatchStats: UserMatchStats
     users(orderBy: LadderUsersOrderBy): [User!]!
     matches(offset: Int, limit: Int): [Match!]!
+    matchCount: Int
 }
 
 type UserMatchStats {

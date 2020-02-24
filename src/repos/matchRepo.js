@@ -63,6 +63,21 @@ function createMatchRepo(loaders) {
             return result[0].count;
         },
 
+        async countMatchesByLadder(ladderId) {
+            const result = await connection.query(
+                `
+                    select COUNT(*) from matches m
+                    where m.ladder_id = :ladderId
+                `,
+                {
+                    replacements: { ladderId },
+                    type: connection.QueryTypes.SELECT,
+                }
+            );
+
+            return result[0].count;
+        },
+
         /**
          * Returns matches played by a user in a particular ladder.
          */

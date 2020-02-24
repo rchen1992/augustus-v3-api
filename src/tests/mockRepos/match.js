@@ -27,6 +27,11 @@ module.exports = {
         return this.getMatchesByUser(userId).length;
     },
 
+    countMatchesByLadder(ladderId) {
+        const ladder = mockLadderRepo.getLadderWithMatches(ladderId);
+        return ladder.matches.length;
+    },
+
     getMatchesByLadderUser(userId, ladderId) {
         return this.getMatchesByUser(userId).filter(match => match.ladder_id == ladderId);
     },
