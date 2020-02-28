@@ -12,10 +12,15 @@ const newLadder = (_, args, ctx) => {
     return ctx.services.ladder.newLadder(args.ladderName, ctx.currentUser.user_id);
 };
 
+const ladderByInviteToken = (_, args, ctx) => {
+    return ctx.repos.ladder.getLadderByInviteToken(args.token);
+};
+
 module.exports = {
     Query: {
         ladders,
         ladder,
+        ladderByInviteToken,
     },
     Mutation: {
         newLadder: authenticated(newLadder),

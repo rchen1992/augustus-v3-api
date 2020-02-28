@@ -11,6 +11,10 @@ module.exports = {
         return mockLadders.find(ladder => ladderId == ladder.ladder_id);
     },
 
+    getLadderByInviteToken(token) {
+        return mockLadders.find(ladder => token == ladder.invite_token);
+    },
+
     getLadderWithUsers(ladderId) {
         const ladder = this.getLadderById(ladderId);
         const ladderUsers = mockLadderUsers.filter(ladderUser => ladderUser.ladder_id === ladderId);

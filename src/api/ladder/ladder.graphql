@@ -27,6 +27,7 @@ enum LadderUsersOrderBy {
 extend type Query {
     ladders: [Ladder!]!
     ladder(id: ID!): Ladder
+    ladderByInviteToken(token: String!): Ladder
 }
 
 extend type Mutation {
