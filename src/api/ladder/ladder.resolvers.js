@@ -8,12 +8,16 @@ const ladder = (_, args, ctx) => {
     return ctx.repos.ladder.getLadderById(args.id);
 };
 
+const ladderByInviteToken = (_, args, ctx) => {
+    return ctx.repos.ladder.getLadderByInviteToken(args.token);
+};
+
 const newLadder = (_, args, ctx) => {
     return ctx.services.ladder.newLadder(args.ladderName, ctx.currentUser.user_id);
 };
 
-const ladderByInviteToken = (_, args, ctx) => {
-    return ctx.repos.ladder.getLadderByInviteToken(args.token);
+const joinLadder = (_, args, ctx) => {
+    return ctx.services.ladder.joinLadder(args.token, ctx.currentUser.user_id);
 };
 
 module.exports = {
@@ -24,6 +28,7 @@ module.exports = {
     },
     Mutation: {
         newLadder: authenticated(newLadder),
+        joinLadder: authenticated(joinLadder),
     },
     Ladder: {
         id(ladder) {

@@ -32,4 +32,5 @@ extend type Query {
 
 extend type Mutation {
     newLadder(ladderName: String!): Ladder!
+    joinLadder(token: String!): Ladder!
 }

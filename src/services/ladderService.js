@@ -36,6 +36,18 @@ function createLadderService(ladderRepo, ladderUserRepo) {
             }
         },
 
+        async joinLadder(token, userId) {
+            try {
+                const ladder = await ladderRepo.getLadderByInviteToken(token);
+                const ladderUser = await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
+                ladder.ladder_user = ladderUser;
+                return ladder;
+            } catch (e) {
+                console.log(e);
+                throw new Error('An error occurred while attempting to join a ladder.');
+            }
+        },
+
         async getUserRank(ladderId, userId) {
             const usersRankedDesc = await getUsersRankedDesc(ladderId);
             const rankIndex = usersRankedDesc.findIndex(user => user.user_id === userId);
