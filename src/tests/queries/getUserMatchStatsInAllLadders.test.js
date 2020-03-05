@@ -7,14 +7,17 @@ testQuery({
         {
             user(id: 1) {
                 id
-                ladders {
+                userLadders {
                     id
-                    ladderName
-                    userMatchStats {
+                    matchStats {
                         matchCount
                         winCount
                         lossCount
                         tieCount
+                    }
+                    ladder {
+                        id
+                        ladderName
                     }
                 }
             }

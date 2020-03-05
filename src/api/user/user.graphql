@@ -3,15 +3,11 @@ type User implements Node {
     email: String
     userName: String!
     avatarUrl: String
-    ladders: [Ladder!]!
+    userLadders: [LadderUser!]!
     matches(offset: Int, limit: Int): [Match!]!
     matchCount: Int
     createdAt: String
     updatedAt: String
-    rating: Int
-    ratingDelta: Int
-    rank: Int
-    ladderJoinDate: String
 }
 
 extend type Query {

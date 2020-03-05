@@ -1,0 +1,17 @@
+type LadderUser {
+    id: ID!
+    rating: Int
+    ratingDelta: Int
+    rank: Int
+    matchStats: UserMatchStats
+    user: User!
+    ladder: Ladder!
+    joinDate: String
+}
+
+type UserMatchStats {
+    matchCount: Int
+    winCount: Int
+    lossCount: Int
+    tieCount: Int
+}

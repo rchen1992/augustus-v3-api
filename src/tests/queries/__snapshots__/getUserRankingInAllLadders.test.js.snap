@@ -5,31 +5,46 @@ Object {
   "data": Object {
     "user": Object {
       "id": "1",
-      "ladders": Array [
+      "userLadders": Array [
         Object {
-          "id": "1",
-          "ladderName": "Tagpad",
-          "userRank": 3,
+          "id": "1:1",
+          "ladder": Object {
+            "id": "1",
+            "ladderName": "Tagpad",
+          },
+          "rank": 3,
         },
         Object {
-          "id": "2",
-          "ladderName": "Kamba",
-          "userRank": 3,
+          "id": "2:1",
+          "ladder": Object {
+            "id": "2",
+            "ladderName": "Kamba",
+          },
+          "rank": 3,
         },
         Object {
-          "id": "3",
-          "ladderName": "Skyvu",
-          "userRank": 3,
+          "id": "3:1",
+          "ladder": Object {
+            "id": "3",
+            "ladderName": "Skyvu",
+          },
+          "rank": 3,
         },
         Object {
-          "id": "4",
-          "ladderName": "Thoughtworks",
-          "userRank": 3,
+          "id": "4:1",
+          "ladder": Object {
+            "id": "4",
+            "ladderName": "Thoughtworks",
+          },
+          "rank": 3,
         },
         Object {
-          "id": "5",
-          "ladderName": "Yakijo",
-          "userRank": 3,
+          "id": "5:1",
+          "ladder": Object {
+            "id": "5",
+            "ladderName": "Yakijo",
+          },
+          "rank": 3,
         },
       ],
     },

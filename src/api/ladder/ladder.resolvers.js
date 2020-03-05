@@ -46,27 +46,14 @@ module.exports = {
         updatedAt(ladder) {
             return ladder.updated_at;
         },
-        userRating(ladder) {
-            return ladder.ladder_user ? ladder.ladder_user.rating : null;
+        myLadderUser: authenticated((ladder, _, ctx) => {
+            return ctx.repos.ladderUser.getLadderUser(ladder.ladder_id, ctx.currentUser.user_id);
+        }),
+        ladderUser(ladder, args, ctx) {
+            return ctx.repos.ladderUser.getLadderUser(ladder.ladder_id, args.userId);
         },
-        userRatingDelta(ladder) {
-            return ladder.ladder_user ? ladder.ladder_user.rating_delta : null;
-        },
-        userRank(ladder, _, ctx) {
-            return ladder.ladder_user
-                ? ctx.services.ladder.getUserRank(ladder.ladder_id, ladder.ladder_user.user_id)
-                : null;
-        },
-        userMatchStats(ladder, _, ctx) {
-            return ladder.ladder_user
-                ? ctx.services.match.getLadderUserMatchStats(
-                      ladder.ladder_user.user_id,
-                      ladder.ladder_id
-                  )
-                : null;
-        },
-        async users(ladder, args, ctx) {
-            return ctx.services.ladder.getLadderWithUsers(ladder.ladder_id, args.orderBy);
+        ladderUsers(ladder, args, ctx) {
+            return ctx.services.ladder.getLadderWithLadderUsers(ladder.ladder_id, args.orderBy);
         },
         async matches(ladder, args, ctx) {
             const ladderModel = await ctx.repos.ladder.getLadderWithMatches(

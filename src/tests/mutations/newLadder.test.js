@@ -1,4 +1,6 @@
 const { testQuery } = require('@tests/utils');
+const { mockLadders } = require('@tests/mockData/dataSet');
+const mockLadderUsersRepo = require('@tests/mockRepos/ladderUser');
 
 const userId = '1';
 const ladderName = 'My New Ladder';
@@ -11,8 +13,11 @@ testQuery({
                 id
                 ladderName
                 inviteToken
-                userRating
-                userRatingDelta
+                myLadderUser {
+                    id
+                    rating
+                    ratingDelta
+                }
             }
         }
     `,
@@ -29,22 +34,14 @@ testQuery({
                 ladder: {
                     newLadder() {
                         return {
-                            ladder_id: 10,
+                            ...mockLadders[0],
                             ladder_name: ladderName,
-                            invite_token: 'tRJcyp2Jkr13',
-                            created_at: '2018-12-11 09:39:31',
-                            updated_at: '2018-10-09 01:00:11',
-                            ladder_user: {
-                                ladder_id: 10,
-                                user_id: userId,
-                                rating: 1000,
-                                rating_delta: 0,
-                                created_at: '2018-12-11 09:39:31',
-                                updated_at: '2018-10-09 01:00:11',
-                            },
                         };
                     },
                 },
+            },
+            repos: {
+                ladderUser: mockLadderUsersRepo,
             },
         };
     },

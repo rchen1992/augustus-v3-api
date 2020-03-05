@@ -7,9 +7,12 @@ testQuery({
         {
             user(id: 1) {
                 id
-                ladders {
+                userLadders {
                     id
-                    ladderName
+                    ladder {
+                        id
+                        ladderName
+                    }
                 }
             }
         }

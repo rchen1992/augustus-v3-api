@@ -4,20 +4,11 @@ type Ladder implements Node {
     inviteToken: String!
     createdAt: String
     updatedAt: String
-    userRating: Int
-    userRatingDelta: Int
-    userRank: Int
-    userMatchStats: UserMatchStats
-    users(orderBy: LadderUsersOrderBy): [User!]!
+    myLadderUser: LadderUser
+    ladderUser(userId: ID!): LadderUser
+    ladderUsers(orderBy: LadderUsersOrderBy): [LadderUser!]!
     matches(offset: Int, limit: Int): [Match!]!
     matchCount: Int
-}
-
-type UserMatchStats {
-    matchCount: Int
-    winCount: Int
-    lossCount: Int
-    tieCount: Int
 }
 
 enum LadderUsersOrderBy {

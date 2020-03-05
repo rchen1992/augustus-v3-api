@@ -4,11 +4,14 @@ exports[`query: Create new ladder 1`] = `
 Object {
   "data": Object {
     "newLadder": Object {
-      "id": "10",
+      "id": "1",
       "inviteToken": "tRJcyp2Jkr13",
       "ladderName": "My New Ladder",
-      "userRating": 1000,
-      "userRatingDelta": 0,
+      "myLadderUser": Object {
+        "id": "1:1",
+        "rating": 160,
+        "ratingDelta": 30,
+      },
     },
   },
 }

@@ -38,29 +38,15 @@ module.exports = {
         updatedAt(user) {
             return user.updated_at;
         },
-        async ladders(user, _, ctx) {
-            const userModel = await ctx.repos.user.getUserWithLadders(user.user_id);
-            return userModel.ladders;
+        async userLadders(user, _, ctx) {
+            const userModel = await ctx.repos.user.getUserWithUserLadders(user.user_id);
+            return userModel.userLadders;
         },
         matches(user, args, ctx) {
             return ctx.repos.match.getMatchesByUser(user.user_id, args.offset, args.limit);
         },
         matchCount(user, _, ctx) {
             return ctx.repos.match.countMatchesByUser(user.user_id);
-        },
-        rating(user) {
-            return user.ladder_user ? user.ladder_user.rating : null;
-        },
-        ratingDelta(user) {
-            return user.ladder_user ? user.ladder_user.rating_delta : null;
-        },
-        rank(user, _, ctx) {
-            return user.ladder_user
-                ? ctx.services.ladder.getUserRank(user.ladder_user.ladder_id, user.user_id)
-                : null;
-        },
-        ladderJoinDate(user) {
-            return user.ladder_user ? user.ladder_user.created_at : null;
         },
     },
 };

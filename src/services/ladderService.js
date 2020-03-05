@@ -7,9 +7,9 @@ function createLadderService(ladderRepo, ladderUserRepo) {
 
     async function getUsersRankedDesc(ladderId) {
         if (!cache.usersRankedDesc[ladderId]) {
-            const ladderWithUsers = await ladderRepo.getLadderWithUsers(ladderId);
-            cache.usersRankedDesc[ladderId] = ladderWithUsers.users.sort(
-                (user1, user2) => user2.ladder_user.rating - user1.ladder_user.rating
+            const ladderWithLadderUsers = await ladderRepo.getLadderWithLadderUsers(ladderId);
+            cache.usersRankedDesc[ladderId] = ladderWithLadderUsers.ladderUsers.sort(
+                (ladderUser1, ladderUser2) => ladderUser2.rating - ladderUser1.rating
             );
         }
 
@@ -27,8 +27,7 @@ function createLadderService(ladderRepo, ladderUserRepo) {
 
             try {
                 const ladder = await ladderRepo.createLadder(trimmedLadderName);
-                const ladderUser = await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
-                ladder.ladder_user = ladderUser;
+                await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
                 return ladder;
             } catch (e) {
                 console.log(e);
@@ -39,8 +38,7 @@ function createLadderService(ladderRepo, ladderUserRepo) {
         async joinLadder(token, userId) {
             try {
                 const ladder = await ladderRepo.getLadderByInviteToken(token);
-                const ladderUser = await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
-                ladder.ladder_user = ladderUser;
+                await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
                 return ladder;
             } catch (e) {
                 console.log(e);
@@ -54,13 +52,13 @@ function createLadderService(ladderRepo, ladderUserRepo) {
             return rankIndex + 1;
         },
 
-        async getLadderWithUsers(ladderId, orderBy) {
+        async getLadderWithLadderUsers(ladderId, orderBy) {
             if (orderBy === LadderUsersOrderBy.rank_DESC) {
                 return getUsersRankedDesc(ladderId);
             }
 
-            const ladder = await ladderRepo.getLadderWithUsers(ladderId);
-            return ladder.users;
+            const ladder = await ladderRepo.getLadderWithLadderUsers(ladderId);
+            return ladder.ladderUsers;
         },
     };
 }

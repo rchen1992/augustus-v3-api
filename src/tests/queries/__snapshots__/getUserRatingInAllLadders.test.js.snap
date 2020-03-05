@@ -5,36 +5,51 @@ Object {
   "data": Object {
     "user": Object {
       "id": "1",
-      "ladders": Array [
+      "userLadders": Array [
         Object {
-          "id": "1",
-          "ladderName": "Tagpad",
-          "userRating": 160,
-          "userRatingDelta": 30,
+          "id": "1:1",
+          "ladder": Object {
+            "id": "1",
+            "ladderName": "Tagpad",
+          },
+          "rating": 160,
+          "ratingDelta": 30,
         },
         Object {
-          "id": "2",
-          "ladderName": "Kamba",
-          "userRating": 100,
-          "userRatingDelta": 30,
+          "id": "2:1",
+          "ladder": Object {
+            "id": "2",
+            "ladderName": "Kamba",
+          },
+          "rating": 100,
+          "ratingDelta": 30,
         },
         Object {
-          "id": "3",
-          "ladderName": "Skyvu",
-          "userRating": 140,
-          "userRatingDelta": 20,
+          "id": "3:1",
+          "ladder": Object {
+            "id": "3",
+            "ladderName": "Skyvu",
+          },
+          "rating": 140,
+          "ratingDelta": 20,
         },
         Object {
-          "id": "4",
-          "ladderName": "Thoughtworks",
-          "userRating": 200,
-          "userRatingDelta": -5,
+          "id": "4:1",
+          "ladder": Object {
+            "id": "4",
+            "ladderName": "Thoughtworks",
+          },
+          "rating": 200,
+          "ratingDelta": -5,
         },
         Object {
-          "id": "5",
-          "ladderName": "Yakijo",
-          "userRating": 100,
-          "userRatingDelta": -10,
+          "id": "5:1",
+          "ladder": Object {
+            "id": "5",
+            "ladderName": "Yakijo",
+          },
+          "rating": 100,
+          "ratingDelta": -10,
         },
       ],
     },

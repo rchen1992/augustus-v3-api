@@ -9,9 +9,14 @@ testQuery({
         {
             ladder(id: 1) {
                 id
-                users {
+                ladderUsers {
                     id
-                    userName
+                    rating
+                    joinDate
+                    user {
+                        id
+                        userName
+                    }
                 }
             }
         }
