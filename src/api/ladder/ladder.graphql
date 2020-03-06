@@ -22,6 +22,6 @@ extend type Query {
 }
 
 extend type Mutation {
-    newLadder(ladderName: String!): Ladder!
+    newLadder(ladderName: String!): LadderUser!
     joinLadder(token: String!): LadderUser!
 }

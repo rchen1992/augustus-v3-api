@@ -11,12 +11,12 @@ testQuery({
         mutation createLadder($ladderName: String!) {
             newLadder(ladderName: $ladderName) {
                 id
-                ladderName
-                inviteToken
-                myLadderUser {
+                rating
+                ratingDelta
+                ladder {
                     id
-                    rating
-                    ratingDelta
+                    ladderName
+                    inviteToken
                 }
             }
         }
@@ -33,9 +33,13 @@ testQuery({
             services: {
                 ladder: {
                     newLadder() {
+                        const ladder = mockLadders[0];
                         return {
-                            ...mockLadders[0],
-                            ladder_name: ladderName,
+                            ...mockLadderUsersRepo.createLadderUser(ladder.ladder_id, userId),
+                            ladder: {
+                                ...ladder,
+                                ladder_name: ladderName,
+                            },
                         };
                     },
                 },

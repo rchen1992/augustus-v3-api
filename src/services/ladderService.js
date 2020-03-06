@@ -27,8 +27,11 @@ function createLadderService(ladderRepo, ladderUserRepo) {
 
             try {
                 const ladder = await ladderRepo.createLadder(trimmedLadderName);
-                await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
-                return ladder;
+                const ladderUser = await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
+                return {
+                    ...ladderUser,
+                    ladder,
+                };
             } catch (e) {
                 console.log(e);
                 throw new Error('An error occurred while creating a ladder.');
