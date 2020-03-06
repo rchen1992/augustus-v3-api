@@ -11,14 +11,14 @@ testQuery({
         mutation joinLadder($token: String!) {
             joinLadder(token: $token) {
                 id
-                ladderName
-                myLadderUser {
+                rating
+                ratingDelta
+                ladder {
                     id
-                    rating
-                    ratingDelta
+                    ladderName
+                    createdAt
+                    inviteToken
                 }
-                createdAt
-                inviteToken
             }
         }
     `,
@@ -34,9 +34,13 @@ testQuery({
             services: {
                 ladder: {
                     joinLadder() {
+                        const ladder = mockLadders[0];
                         return {
-                            ...mockLadders[0],
-                            invite_token: token,
+                            ...mockLadderUsersRepo.createLadderUser(ladder.ladder_id, userId),
+                            ladder: {
+                                ...ladder,
+                                invite_token: token,
+                            },
                         };
                     },
                 },

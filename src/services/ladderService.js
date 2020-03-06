@@ -38,8 +38,11 @@ function createLadderService(ladderRepo, ladderUserRepo) {
         async joinLadder(token, userId) {
             try {
                 const ladder = await ladderRepo.getLadderByInviteToken(token);
-                await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
-                return ladder;
+                const ladderUser = await ladderUserRepo.createLadderUser(ladder.ladder_id, userId);
+                return {
+                    ...ladderUser,
+                    ladder,
+                };
             } catch (e) {
                 console.log(e);
                 throw new Error('An error occurred while attempting to join a ladder.');
