@@ -1,6 +1,7 @@
 const user = require('./user');
 const ladder = require('./ladder');
 const match = require('./match');
+const ladderUser = require('./ladderUser');
 const baseTypeDefs = require('@utils/gqlLoader')('api/base.graphql');
 const baseResolvers = require('./base.resolvers');
 const merge = require('lodash/merge');
@@ -30,8 +31,14 @@ function mergeResolvers(resolvers) {
 }
 
 module.exports = {
-    typeDefs: mergeTypeDefs([user.typeDefs, ladder.typeDefs, match.typeDefs]),
-    resolvers: mergeResolvers([baseResolvers, user.resolvers, ladder.resolvers, match.resolvers]),
+    typeDefs: mergeTypeDefs([user.typeDefs, ladder.typeDefs, match.typeDefs, ladderUser.typeDefs]),
+    resolvers: mergeResolvers([
+        baseResolvers,
+        user.resolvers,
+        ladder.resolvers,
+        match.resolvers,
+        ladderUser.resolvers,
+    ]),
     context: req => {
         const { request, response } = req;
         const { currentUser } = request;
@@ -51,6 +58,7 @@ module.exports = {
                 user: userRepo,
                 match: matchRepo,
                 ladder: ladderRepo,
+                ladderUser: ladderUserRepo,
             },
             services: {
                 auth: createUserService(userRepo),

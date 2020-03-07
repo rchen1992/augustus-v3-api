@@ -5,11 +5,14 @@ Object {
   "data": Object {
     "user": Object {
       "id": "1",
-      "ladders": Array [
+      "userLadders": Array [
         Object {
-          "id": "1",
-          "ladderName": "Tagpad",
-          "userMatchStats": Object {
+          "id": "1:1",
+          "ladder": Object {
+            "id": "1",
+            "ladderName": "Tagpad",
+          },
+          "matchStats": Object {
             "lossCount": 2,
             "matchCount": 7,
             "tieCount": 1,
@@ -17,9 +20,12 @@ Object {
           },
         },
         Object {
-          "id": "2",
-          "ladderName": "Kamba",
-          "userMatchStats": Object {
+          "id": "2:1",
+          "ladder": Object {
+            "id": "2",
+            "ladderName": "Kamba",
+          },
+          "matchStats": Object {
             "lossCount": 2,
             "matchCount": 7,
             "tieCount": 1,
@@ -27,9 +33,12 @@ Object {
           },
         },
         Object {
-          "id": "3",
-          "ladderName": "Skyvu",
-          "userMatchStats": Object {
+          "id": "3:1",
+          "ladder": Object {
+            "id": "3",
+            "ladderName": "Skyvu",
+          },
+          "matchStats": Object {
             "lossCount": 2,
             "matchCount": 7,
             "tieCount": 1,
@@ -37,9 +46,12 @@ Object {
           },
         },
         Object {
-          "id": "4",
-          "ladderName": "Thoughtworks",
-          "userMatchStats": Object {
+          "id": "4:1",
+          "ladder": Object {
+            "id": "4",
+            "ladderName": "Thoughtworks",
+          },
+          "matchStats": Object {
             "lossCount": 2,
             "matchCount": 7,
             "tieCount": 1,
@@ -47,9 +59,12 @@ Object {
           },
         },
         Object {
-          "id": "5",
-          "ladderName": "Yakijo",
-          "userMatchStats": Object {
+          "id": "5:1",
+          "ladder": Object {
+            "id": "5",
+            "ladderName": "Yakijo",
+          },
+          "matchStats": Object {
             "lossCount": 2,
             "matchCount": 7,
             "tieCount": 1,

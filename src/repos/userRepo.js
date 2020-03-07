@@ -23,16 +23,33 @@ function createUserRepo(loaders) {
             return user && user.toJSON();
         },
 
-        async getUserWithLadders(userId) {
+        async getUserWithUserLadders(userId) {
             const user = await loaders.user.load(userId);
             if (!user) {
                 return null;
             }
 
+            /**
+             * Getting ladders through relationship will put
+             * `ladder_user` on each of the ladder objects.
+             *
+             * We need to map it so that ladderUser is the root object
+             * and `ladder` is a nested field inside ladderUser, instead
+             * of the other way around.
+             */
             const ladders = await user.getLadders();
+            const ladderUsers = ladders.map(ladder => {
+                const exportedLadder = ladder.toJSON();
+                return {
+                    ...exportedLadder.ladder_user,
+                    ladder: exportedLadder,
+                    user,
+                };
+            });
+
             return {
                 ...user.toJSON(),
-                ladders: ladders.map(ladder => ladder.toJSON()),
+                userLadders: ladderUsers,
             };
         },
 

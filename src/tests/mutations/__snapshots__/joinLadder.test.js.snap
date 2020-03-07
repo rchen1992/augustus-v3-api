@@ -4,12 +4,15 @@ exports[`query: Join a ladder 1`] = `
 Object {
   "data": Object {
     "joinLadder": Object {
-      "createdAt": "2018-12-11 09:39:31",
-      "id": "10",
-      "inviteToken": "3dV982mqxe4",
-      "ladderName": "Skyvu",
-      "userRating": 1000,
-      "userRatingDelta": 0,
+      "id": "1:1",
+      "ladder": Object {
+        "createdAt": "2018-12-11 09:39:31",
+        "id": "1",
+        "inviteToken": "3dV982mqxe4",
+        "ladderName": "Tagpad",
+      },
+      "rating": 1000,
+      "ratingDelta": 0,
     },
   },
 }

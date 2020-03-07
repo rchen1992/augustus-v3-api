@@ -15,20 +15,20 @@ module.exports = {
         return mockLadders.find(ladder => token == ladder.invite_token);
     },
 
-    getLadderWithUsers(ladderId) {
+    getLadderWithLadderUsers(ladderId) {
         const ladder = this.getLadderById(ladderId);
         const ladderUsers = mockLadderUsers.filter(ladderUser => ladderUser.ladder_id === ladderId);
-        const users = ladderUsers.map(ladderUser => {
+        const exportedLadderUsers = ladderUsers.map(ladderUser => {
             const user = mockUserRepo.getUserById(ladderUser.user_id);
             return {
-                ...user,
-                ladder_user: ladderUser,
+                ...ladderUser,
+                user,
             };
         });
 
         return {
             ...ladder,
-            users,
+            ladderUsers: exportedLadderUsers,
         };
     },
 

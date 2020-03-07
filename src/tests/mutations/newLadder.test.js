@@ -1,4 +1,6 @@
 const { testQuery } = require('@tests/utils');
+const { mockLadders } = require('@tests/mockData/dataSet');
+const mockLadderUsersRepo = require('@tests/mockRepos/ladderUser');
 
 const userId = '1';
 const ladderName = 'My New Ladder';
@@ -9,10 +11,13 @@ testQuery({
         mutation createLadder($ladderName: String!) {
             newLadder(ladderName: $ladderName) {
                 id
-                ladderName
-                inviteToken
-                userRating
-                userRatingDelta
+                rating
+                ratingDelta
+                ladder {
+                    id
+                    ladderName
+                    inviteToken
+                }
             }
         }
     `,
@@ -28,23 +33,19 @@ testQuery({
             services: {
                 ladder: {
                     newLadder() {
+                        const ladder = mockLadders[0];
                         return {
-                            ladder_id: 10,
-                            ladder_name: ladderName,
-                            invite_token: 'tRJcyp2Jkr13',
-                            created_at: '2018-12-11 09:39:31',
-                            updated_at: '2018-10-09 01:00:11',
-                            ladder_user: {
-                                ladder_id: 10,
-                                user_id: userId,
-                                rating: 1000,
-                                rating_delta: 0,
-                                created_at: '2018-12-11 09:39:31',
-                                updated_at: '2018-10-09 01:00:11',
+                            ...mockLadderUsersRepo.createLadderUser(ladder.ladder_id, userId),
+                            ladder: {
+                                ...ladder,
+                                ladder_name: ladderName,
                             },
                         };
                     },
                 },
+            },
+            repos: {
+                ladderUser: mockLadderUsersRepo,
             },
         };
     },

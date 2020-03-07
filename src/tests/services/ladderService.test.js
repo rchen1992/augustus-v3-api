@@ -28,7 +28,7 @@ describe('Ladder Service', () => {
 
     test('should be able to get ladder users sorted by rank desc', async () => {
         const ladderId = 2;
-        const rankedUsers = await service.getLadderWithUsers(
+        const rankedUsers = await service.getLadderWithLadderUsers(
             ladderId,
             LadderUsersOrderBy.rank_DESC
         );
