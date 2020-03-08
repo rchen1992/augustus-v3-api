@@ -38,6 +38,7 @@
     },
     "_moduleAliases": {
         "@api": "src/api",
+        "@constants": "src/constants",
         "@database": "database",
         "@enums": "src/enums",
         "@guards": "src/guards",

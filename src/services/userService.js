@@ -1,7 +1,17 @@
 const createWhitelistMapperForUpdate = require('@helpers/createWhitelistMapperForUpdate');
+const createValidationMessageMapper = require('@helpers/createValidationMessageMapper');
+const {
+    SEQUELIZE_VALIDATOR_KEY_LENGTH,
+    SEQUELIZE_VALIDATOR_KEY_NOT_UNIQUE,
+} = require('@constants/sequelizeValidatorKeys');
 
 const whitelistMapper = createWhitelistMapperForUpdate({
     userName: 'user_name',
+});
+
+const getValidationErrorMessage = createValidationMessageMapper({
+    [`user_name|${SEQUELIZE_VALIDATOR_KEY_LENGTH}`]: 'Username is too short or too long.',
+    [`user_name|${SEQUELIZE_VALIDATOR_KEY_NOT_UNIQUE}`]: 'Username is already taken.',
 });
 
 function createUserService(userRepo) {
@@ -27,9 +37,14 @@ function createUserService(userRepo) {
             return userRepo.updateUser(userId, { email, avatar_url: avatarUrl });
         },
 
-        updateUser(userId, fields) {
-            const updateFields = whitelistMapper(fields);
-            return userRepo.updateUser(userId, updateFields);
+        async updateUser(userId, fields) {
+            try {
+                const updateFields = whitelistMapper(fields);
+                const user = await userRepo.updateUser(userId, updateFields);
+                return user;
+            } catch (err) {
+                throw new Error(getValidationErrorMessage(err));
+            }
         },
     };
 }

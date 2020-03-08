@@ -3,10 +3,10 @@
 exports[`query: Update user 1`] = `
 Object {
   "data": Object {
-    "updateUser": null,
+    "updateUser": Object {
+      "id": "1",
+      "userName": "updated username",
+    },
   },
-  "errors": Array [
-    [GraphQLError: role "raymondchen" does not exist],
-  ],
 }
 `;
