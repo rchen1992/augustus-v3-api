@@ -1,3 +1,9 @@
+const createWhitelistMapperForUpdate = require('@helpers/createWhitelistMapperForUpdate');
+
+const whitelistMapper = createWhitelistMapperForUpdate({
+    userName: 'user_name',
+});
+
 function createUserService(userRepo) {
     return {
         /**
@@ -19,6 +25,11 @@ function createUserService(userRepo) {
              * We control the `userName` in our DB, so don't overwrite that with Auth0's nickname.
              */
             return userRepo.updateUser(userId, { email, avatar_url: avatarUrl });
+        },
+
+        updateUser(userId, fields) {
+            const updateFields = whitelistMapper(fields);
+            return userRepo.updateUser(userId, updateFields);
         },
     };
 }

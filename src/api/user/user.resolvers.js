@@ -13,11 +13,18 @@ const me = (_, __, ctx) => {
     return ctx.currentUser;
 };
 
+const updateUser = (_, args, ctx) => {
+    return ctx.services.user.updateUser(ctx.currentUser.user_id, args.fields);
+};
+
 module.exports = {
     Query: {
         users,
         user,
         me: authenticated(me),
+    },
+    Mutation: {
+        updateUser: authenticated(updateUser),
     },
     User: {
         id(user) {

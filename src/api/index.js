@@ -61,7 +61,7 @@ module.exports = {
                 ladderUser: ladderUserRepo,
             },
             services: {
-                auth: createUserService(userRepo),
+                user: createUserService(userRepo),
                 ladder: createLadderService(ladderRepo, ladderUserRepo),
                 match: createMatchService(matchRepo, ladderUserRepo),
             },

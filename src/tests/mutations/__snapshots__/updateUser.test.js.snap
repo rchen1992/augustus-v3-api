@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query: Update user 1`] = `
+Object {
+  "data": Object {
+    "updateUser": null,
+  },
+  "errors": Array [
+    [GraphQLError: role "raymondchen" does not exist],
+  ],
+}
+`;
