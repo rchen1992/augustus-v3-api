@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const createModel = require('./createModel');
 
 const USERNAME_MIN_LENGTH = 4;
-const USERNAME_MAX_LENGTH = 20;
+const USERNAME_MAX_LENGTH = 30;
 
 module.exports = createModel('user', {
     user_id: { type: Sequelize.STRING(128), primaryKey: true, autoIncrement: true },
