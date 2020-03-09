@@ -6,7 +6,17 @@ const {
 } = require('@constants/sequelizeValidatorKeys');
 
 const whitelistMapper = createWhitelistMapperForUpdate({
-    userName: 'user_name',
+    userName: {
+        name: 'user_name',
+        transform(value) {
+            const trimmed = value.trim();
+            if (trimmed.length === 0) {
+                throw new Error('Username cannot be empty.');
+            }
+
+            return trimmed;
+        },
+    },
 });
 
 const getValidationErrorMessage = createValidationMessageMapper({
@@ -38,8 +48,9 @@ function createUserService(userRepo) {
         },
 
         async updateUser(userId, fields) {
+            const updateFields = whitelistMapper(fields);
+
             try {
-                const updateFields = whitelistMapper(fields);
                 const user = await userRepo.updateUser(userId, updateFields);
                 return user;
             } catch (err) {
