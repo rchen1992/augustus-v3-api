@@ -8,8 +8,7 @@ const syncUser = require('./middleware/syncUser');
 const serverOptions = {
     port: 8080,
     endpoint: '/graphql',
-    // TODO: disable playground in prod.
-    // playground: process.env.NODE_ENV === 'development' ? '/docs' : false,
+    playground: process.env.NODE_ENV === 'development' ? '/docs' : false,
     playground: '/docs',
     tracing: true,
     debug: true,
