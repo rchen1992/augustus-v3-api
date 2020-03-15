@@ -35,15 +35,19 @@ const syncUser = async (req, res, next) => {
     const userRepo = createUserRepo(loaders);
     const userService = createUserService(userRepo);
 
-    const user = await userService.syncUserFromAuth0({
-        userId,
-        email,
-        nickname,
-        avatarUrl,
-    });
+    try {
+        const user = await userService.syncUserFromAuth0({
+            userId,
+            email,
+            nickname,
+            avatarUrl,
+        });
 
-    if (user) {
-        req.currentUser = user;
+        if (user) {
+            req.currentUser = user;
+        }
+    } catch (e) {
+        console.log('Error while syncing user', e);
     }
 
     next();

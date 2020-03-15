@@ -53,15 +53,24 @@ function createUserRepo(loaders) {
             };
         },
 
-        async createUser({ userId, userName, email, avatarUrl }) {
-            const user = await User.create({
-                user_id: userId,
-                user_name: userName,
-                email,
-                avatar_url: avatarUrl,
+        async findOrCreateUser({ userId, userName, email, avatarUrl }) {
+            /**
+             * Under the hood, this runs in a transaction so that
+             * there is no chance for another request to create a record
+             * in between the find and create.
+             */
+            const results = await User.findOrCreate({
+                where: {
+                    user_id: userId,
+                },
+                defaults: {
+                    user_name: userName,
+                    email,
+                    avatar_url: avatarUrl,
+                },
             });
 
-            return user.toJSON();
+            return results.length > 0 ? results[0].toJSON() : null;
         },
 
         async updateUser(userId, fields) {

@@ -33,11 +33,16 @@ function createUserService(userRepo) {
             let user = await userRepo.getUserById(userId);
 
             /**
-             * If user doesn't exist, create a new one.
+             * If user doesn't exist, find/create a new one.
+             * The reason we have to do find or create is to handle the case
+             * where there are concurrent requests which look for the user in the DB and
+             * don't find it, and thus fall into this `if` block to try and create a user.
+             * The first insert will work, but all other requests will fail
+             * due to unique key constraint violation.
              */
             if (!user) {
                 const userName = await userRepo.generateUniqueUsername(nickname);
-                return userRepo.createUser({ userId, email, userName, avatarUrl });
+                return userRepo.findOrCreateUser({ userId, email, userName, avatarUrl });
             }
 
             /**

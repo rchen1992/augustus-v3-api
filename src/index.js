@@ -9,7 +9,6 @@ const serverOptions = {
     port: 8080,
     endpoint: '/graphql',
     playground: process.env.NODE_ENV === 'development' ? '/docs' : false,
-    playground: '/docs',
     tracing: true,
     debug: true,
     cors: {
