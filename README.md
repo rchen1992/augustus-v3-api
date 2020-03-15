@@ -56,4 +56,4 @@ Restart Server Steps: (after initial setup)
 Misc:
 
 -   `dc -f docker-compose.prod.yml ps` checks if server is running
--   `dc -f docker-compose.prof.yml logs` opens up logs for all running containers
+-   `dc -f docker-compose.prod.yml logs` opens up logs for all running containers
